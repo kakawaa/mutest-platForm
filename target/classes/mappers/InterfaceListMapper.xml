@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mutest.dao.base.InterfaceListDao">
+    <resultMap id="InterfaceResultMap" type="com.mutest.model.interfaces.InterfaceInfo">
+        <result column="project_id" property="projectId"/>
+        <result column="project_name" property="projectName"/>
+        <result column="module_name" property="moduleName"/>
+        <result column="interface_name" property="interfaceName"/>
+        <result column="param_type" property="paramType"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+    </resultMap>
+
+    <select id="getInterfaceList" resultMap="InterfaceResultMap">
+        SELECT
+            a.id,
+			project_id,
+            module_id,
+            project_name,
+            module_name,
+            interface_name,
+            url,
+            path,
+            method,
+            param_type,
+            a.creator,
+            a.description,
+            a.create_time,
+            a.modify_time
+        FROM
+            mutest.interface_list a
+            JOIN
+            mutest.interface_module b
+			ON a.module_id = b.id
+			JOIN
+			mutest.interface_project c
+			ON
+			b.project_id = c.id
+        ORDER BY project_id,module_id
+    </select>
+
+    <select id="searchInterface" resultMap="InterfaceResultMap">
+        SELECT
+        a.id,
+        project_id,
+        module_id,
+        project_name,
+        module_name,
+        interface_name,
+        url,
+        path,
+        method,
+        param_type,
+        a.description,
+        a.create_time,
+        a.modify_time
+        FROM
+        mutest.interface_list a
+        JOIN
+        mutest.interface_module b
+        ON
+        a.module_id = b.id
+        JOIN
+        mutest.interface_project c
+        ON
+        b.project_id = c.id
+        <where>
+            <if test="projectName != null and projectName != ''">and project_name = #{projectName}</if>
+            <if test="moduleName != null and moduleName != ''">and module_name = #{moduleName}</if>
+            <if test="interfaceName != null and interfaceName != ''">and interface_name like concat('%',
+                #{interfaceName},
+                '%')
+            </if>
+        </where>
+        order by project_id,module_id
+    </select>
+
+    <update id="updateInterface" parameterType="com.mutest.model.interfaces.InterfaceInfo">
+        UPDATE
+        mutest.interface_list
+        SET
+        <if test="moduleId != null and moduleId !=''">module_id = #{moduleId},</if>
+        <if test="interfaceName != null and interfaceName !=''">interface_name = #{interfaceName},</if>
+        <if test="path != null and path !=''">path = #{path},</if>
+        <if test="paramType != null and paramType !=''">param_type = #{paramType},</if>
+        <if test="method != null and method !=''">method = #{method},</if>
+        <if test="description != null">description = #{description}</if>
+        WHERE
+        id = #{id}
+    </update>
+
+    <select id="interfaceUpdateCount" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM
+        mutest.interface_list a
+        JOIN mutest.interface_module b ON a.module_id = b.id
+        JOIN mutest.interface_project c on b.project_id =c.id
+        WHERE a.id != #{id}
+        AND project_name=#{projectName}
+        AND (interface_name=#{interfaceName}
+        OR path=#{path})
+    </select>
+
+    <select id="interfaceAddCount" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM
+        mutest.interface_list a
+        JOIN mutest.interface_module b ON a.module_id = b.id
+        JOIN mutest.interface_project c on b.project_id =c.id
+        WHERE
+        project_name=#{projectName} AND interface_name=#{interfaceName} OR path=#{path}
+    </select>
+
+    <select id="getInterfaceIdByNames" resultType="java.lang.Long">
+        SELECT
+            a.id
+        FROM
+            mutest.interface_list a
+        LEFT JOIN
+            mutest.interface_module b
+        ON
+            a.module_id = b.id
+        LEFT JOIN
+            mutest.interface_project c
+        ON
+            b.project_id = c.id
+        WHERE
+            project_name = #{projectName}
+        AND
+            module_name = #{moduleName}
+        AND
+            interface_name = #{interfaceName}
+        LIMIT 1
+    </select>
+</mapper>

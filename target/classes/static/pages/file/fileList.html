@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>文件管理页面</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all"/>
+</head>
+<body>
+<div style="font-size: 13px">
+    <!-- 表格区域 -->
+    <table id="file_table" lay-filter="fileList"></table>
+</div>
+</body>
+</html>
+
+<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/authority.js"></script>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="fileList.js"></script>
+<script type="text/javascript" src="../../js/publicTool.js"></script>
+<script src="../../js/common.js"></script>
+
+<script type="text/html" id="file_headerBar">
+    <!--搜索框-->
+    <div style="display: table;width: 100%">
+        <div style="display: table-cell;width: 475px">
+            <form class="layui-form" id="search_form">
+                <!--搜索条件1：平台名称-->
+                <div class="layui-input-inline" style="width: 150px">
+                    <!--<label>平&ensp;台&ensp;</label>-->
+                    <select id="uploaderSearch" name="uploader" lay-filter="uploaderSearch">
+                        <option value="">请选择上传人</option>
+                    </select>
+                </div>
+                <!--搜索条件2：项目名称-->
+                <div class="layui-input-inline" style="width: 150px">
+                    <!--<label>项&ensp;目&ensp;</label>-->
+                    <select id="contentTypeSearch" name="contentType" lay-filter="contentTypeSearch">
+                        <option value="">请选择格式</option>
+                    </select>
+                </div>
+
+                <button class="layui-btn layui-btn-sm layui-btn-danger" lay-submit lay-filter="search"><i
+                        class="layui-icon">&#xe615;</i>搜&emsp;索
+                </button>
+                <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">
+                    <i class="layui-icon">&#xe631;</i>重&emsp;置
+                </button>
+            </form>
+        </div>
+        <div style="display: table-cell">
+            <!--刷新-->
+            <div style="display: table-cell;">
+                <button class="layui-btn layui-btn-normal layui-btn-sm" lay-event="refresh" style=" margin-left: 15px">
+                    <i class="layui-icon">&#xe669;</i> 刷&emsp;新
+                </button>
+            </div>
+            <!--上传-->
+            <div style="display: table-cell;">
+                <button type="button" class="layui-btn  layui-btn-sm" id="upload"
+                        style=" margin-left: 15px">
+                    <i class="layui-icon">&#xe67c;</i>上传文件
+                </button>
+            </div>
+        </div>
+    </div>
+</script>
+<!--行工具按钮-->
+<script type="text/html" id="file_lineBar">
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="delete">删除</a>
+</script>

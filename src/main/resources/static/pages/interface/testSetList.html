@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>接口测试场景</title>
+    <link rel="stylesheet" href="../../layui/css/layui.css">
+    <style>
+        .open-div {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .h1 {
+            line-height: 36px;
+            margin: 10px 0 10px 15px;
+            font-size: 17px;
+            font-weight: 400;
+            border-left: 5px solid #009E94;
+            padding-left: 8px
+        }
+    </style>
+</head>
+<body>
+<div style="font-size: 13px">
+    <!-- 表格区域 -->
+    <table id="testSet_table" lay-filter="testSetBar"></table>
+</div>
+<!--增加与修改的form表单-->
+<div class="layui-row open-div" id="add_div">
+    <form id="testSetInfoForm" class="layui-form" action="" style="margin-top: 20px;align:center;">
+        <input type="hidden" name="id" id="id">
+        <h1 class="h1">基本信息</h1>
+        <div style="display: table;width: 95%;margin: 0 0 10px 8px">
+            <div class="layui-form-item" style="display: table-cell;width: 200px;">
+                <label class="layui-form-label-large">项&emsp;&emsp;目：</label>
+                <div class="layui-input-block" style="width: 150px;">
+                    <select id="projectName" name="projectName" lay-verify="required"></select>
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="display: table-cell">
+                <label class="layui-form-label-large">场景说明：</label>
+                <div class="layui-input-block">
+                    <input type="text" name="description" placeholder="请输入用例说明"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="display: table-cell;width: 120px">
+                <label class="layui-form-label-large">场景编号：</label>
+                <div class="layui-input-block">
+                    <input class="layui-input" type="text" name="id" id="testSetId"
+                           style="border: none;width: 100px" readonly="readonly">
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="display: none;">
+                <label class="layui-form-label-large">创建人：</label>
+                <div class="layui-input-block">
+                    <input class="layui-input" type="text" name="creator"
+                           style="border: none;width: 100px" readonly="readonly">
+                </div>
+            </div>
+        </div>
+
+        <h1 class="h1">用例列表</h1>
+        <div style="margin:5px 20px 18px 28px">
+            <div class="layui-btn-group" style="margin-bottom: 3px">
+                <button class="layui-btn layui-btn-sm layui-btn-danger" id="up"><i class="layui-icon">&#xe619;</i>
+                </button>
+                <button class="layui-btn layui-btn-sm layui-btn-danger" id="down"><i class="layui-icon">&#xe61a;</i>
+                </button>
+                <button class="layui-btn layui-btn-sm layui-btn-danger" id="add"><i class="layui-icon">&#xe654;</i>
+                </button>
+            </div>
+            <table id="case_table" lay-filter="caseBar"></table>
+        </div>
+
+        <div class="layui-form-item" style="margin-left: 45%">
+            <div class="layui-btn-container">
+                <button class="layui-btn" lay-submit="" lay-filter="testSet_submit">提&emsp;交</button>
+                <button class="layui-btn layui-btn-warm" lay-submit="" lay-filter="cancel_button">返&emsp;回</button>
+            </div>
+        </div>
+    </form>
+</div>
+<!--添加用例列表-->
+<div class="layui-row" id="add_case" style="display:none;width: 100%">
+    <form id="add_form" class="layui-form" action="" style="margin-top: 20px;align:center;">
+        <div class="layui-form-item" style="display: table;margin-bottom: 5px;width: 95%">
+            <div class="layui-form-item" style="display: table-cell;width: 33.3%">
+                <label class="layui-form-label">项目名称</label>
+                <div class="layui-input-block">
+                    <select id="projectNameAdd" name="projectName" lay-filter="projectNameAdd" lay-verify="required">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item" style="display: table-cell;width: 33.3%">
+                <label class="layui-form-label">模&emsp;&emsp;块</label>
+                <div class="layui-input-block">
+                    <select id="moduleNameAdd" name="moduleName" lay-filter="moduleNameAdd" lay-verify="required">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="display: table-cell;width: 33.3%">
+                <label class="layui-form-label">接口名称</label>
+                <div class="layui-input-block">
+                    <select name="interfaceName" lay-filter="interfaceName" lay-verify="required">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item" style="display: table;margin-bottom: 5px;width: 95%">
+            <div class="layui-form-item" style="display: table-cell;width: 33.3%">
+                <label class="layui-form-label">用例类型</label>
+                <div class="layui-input-block">
+                    <select name="caseType" lay-filter="caseType">
+                        <option value=""></option>
+                        <option value="标准用例">标准用例</option>
+                        <option value="正常用例">正常用例</option>
+                        <option value="异常用例">异常用例</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item" style="display: table-cell;width: 33.3%">
+                <label class="layui-form-label">创&ensp;建&ensp;人</label>
+                <div class="layui-input-block">
+                    <select id="creator" name="creator" lay-filter="creator">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item" style="width:95%;">
+            <label class="layui-form-label">用&emsp;&emsp;例</label>
+            <div class="layui-input-block">
+                <select id="caseDesc" name="caseDesc" lay-filter="caseDesc" lay-verify="required">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="margin-left: 40%">
+            <div class="layui-btn-container">
+                <button class="layui-btn" lay-submit="" lay-filter="add_submit">提&ensp;交</button>
+                <button class="layui-btn layui-btn-warm" lay-filter="cancel_button">返&emsp;回</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="../../layui/layui.js"></script>
+<script src="../../js/libs/jquery-2.1.1.min.js"></script>
+<script src="../../js/authority.js"></script>
+<script src="../../js/common.js"></script>
+<script src="testSetList.js"></script>
+<script src="../../js/publicTool.js"></script>
+
+<!--头部工具按钮-->
+<script type="text/html" id="testSet_headerBar">
+    <!--搜索框-->
+    <div style="display: table">
+        <div style="display: table-cell">
+            <form class="layui-form" id="search_form">
+                <div class="layui-input-block" style="display: table-cell">
+                    <label>项&ensp;目&ensp;</label>
+                    <div class="layui-input-inline" style="width: 130px">
+                        <select id="projectNameSearch" name="projectName" lay-filter="projectNameSearch">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-input-block" style="display: table-cell">
+                    <label>&ensp;创建人&ensp;</label>
+                    <div class="layui-input-inline" style="width: 130px">
+                        <input type="text" name="creator" placeholder="支持模糊查询"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div style="display: table-cell">
+                    <button class="layui-btn layui-btn-sm layui-btn-danger" lay-submit lay-filter="search"
+                            style="margin-left: 15px"><i class="layui-icon">&#xe615;</i>搜&emsp;索
+                    </button>
+                    <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">
+                        <i class="layui-icon">&#xe631;</i>重&emsp;置
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div style="display: table-cell">
+            <!--新增-->
+            <div style="display: table-cell">
+                <button class="layui-btn layui-btn-sm" lay-event="add" style="margin-left: 15px">
+                    <i class="layui-icon">&#xe608;</i> 新&emsp;增
+                </button>
+            </div>
+            <!--刷新-->
+            <div style="display: table-cell;">
+                <button class="layui-btn layui-btn-normal layui-btn-sm" lay-event="refresh" style="margin-left: 15px">
+                    <i class="layui-icon">&#xe669;</i> 刷&emsp;新
+                </button>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!--行工具按钮-->
+<script type="text/html" id="testSet_lineBar">
+    <a class="layui-btn layui-btn-xs" lay-event="execute">执行</a>
+    <a class="layui-btn layui-btn-xs layui-btn-warm" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+</script>
+
+<script type="text/html" id="case_lineBar">
+    <a class="layui-btn layui-btn-xs" lay-event="detail">详情</a>
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+</script>
+</body>
+</html>

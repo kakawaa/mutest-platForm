@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mutest.dao.base.InterfaceCaseDao">
+    <resultMap id="CaseResultMap" type="com.mutest.model.interfaces.CaseInfo">
+        <result column="project_id" property="projectId"/>
+        <result column="module_id" property="moduleId"/>
+        <result column="interface_id" property="interfaceId"/>
+        <result column="project_name" property="projectName"/>
+        <result column="module_name" property="moduleName"/>
+        <result column="interface_name" property="interfaceName"/>
+        <result column="result_demo" property="resultDemo"/>
+        <result column="header_data" property="headerData"/>
+        <result column="body_data" property="bodyData"/>
+        <result column="case_type" property="caseType"/>
+        <result column="param_type" property="paramType"/>
+        <result column="assertion_shell" property="assertionShell"/>
+        <result column="shell_status" property="shellStatus"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+    </resultMap>
+
+    <select id="getCaseList" resultMap="CaseResultMap">
+        SELECT
+            a.id,
+            project_id,
+			module_id,
+            interface_id,
+			project_name,
+            module_name,
+            interface_name,
+            a.creator,
+            case_type,
+            delay,
+            a.description,
+            a.create_time,
+            a.modify_time
+        FROM mutest.interface_case a
+            JOIN mutest.interface_list b ON a.interface_id = b.id
+            JOIN mutest.interface_module c ON b.module_id = c.id
+			JOIN mutest.interface_project d ON c.project_id = d.id
+        ORDER by project_id, module_id, interface_id
+    </select>
+
+    <update id="updateCaseInfo" parameterType="com.mutest.model.interfaces.CaseInfo">
+        UPDATE
+        mutest.interface_case
+        SET
+        <if test="headerData != null">header_data = #{headerData},</if>
+        <if test="bodyData != null">body_data = #{bodyData},</if>
+        <if test="resultDemo != null">result_demo = #{resultDemo},</if>
+        <if test="caseType != null">case_type = #{caseType},</if>
+        <if test="correlation != null">correlation = #{correlation},</if>
+        <if test="assertion != null">assertion = #{assertion},</if>
+        <if test="shellStatus != null">shell_status = #{shellStatus},</if>
+        <if test="assertionShell != null">assertion_shell = #{assertionShell}</if>
+        WHERE
+        id = #{id}
+    </update>
+
+    <select id="getCaseInfoById" resultMap="CaseResultMap">
+        SELECT
+		    a.id,
+		    c.project_id,
+		    b.module_id,
+		    a.interface_id,
+		    project_name,
+		    module_name,
+		    interface_name,
+		    url,
+		    path,
+		    method,
+		    delay,
+		    param_type,
+		    header_data,
+		    body_data,
+		    a.creator,
+		    a.description,
+		    result_demo,
+		    assertion,
+		    shell_status,
+		    assertion_shell,
+		    a.create_time,
+		    a.modify_time,
+		    correlation,
+		    case_type
+        FROM
+            mutest.interface_case a
+        JOIN
+            mutest.interface_list b ON a.interface_id = b.id
+        JOIN
+            mutest.interface_module c ON b.module_id = c.id
+		JOIN
+		    mutest.interface_project d ON c.project_id = d.id
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="getCaseMainById" resultMap="CaseResultMap">
+        SELECT
+		    a.id,
+		    c.project_id,
+		    b.module_id,
+		    a.interface_id,
+		    project_name,
+		    module_name,
+		    interface_name,
+		    a.creator,
+		    a.description,
+		    case_type
+        FROM
+            mutest.interface_case a
+        JOIN
+            mutest.interface_list b ON a.interface_id = b.id
+        JOIN
+            mutest.interface_module c ON b.module_id = c.id
+		JOIN
+		    mutest.interface_project d ON c.project_id = d.id
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="searchCase" resultMap="CaseResultMap">
+        SELECT
+        a.id,
+        interface_id,
+        project_name,
+        module_name,
+        interface_name,
+        a.creator,
+        case_type,
+        delay,
+        a.description,
+        a.create_time,
+        a.modify_time
+        FROM mutest.interface_case a
+        JOIN mutest.interface_list b ON a.interface_id = b.id
+        JOIN mutest.interface_module c ON b.module_id = c.id
+        JOIN mutest.interface_project d ON c.project_id = d.id
+        WHERE
+        1=1
+        <if test="projectName != null and projectName != ''">and project_name = #{projectName}</if>
+        <if test="moduleName != null and moduleName != ''">and module_name = #{moduleName}</if>
+        <if test="interfaceName != null and interfaceName != ''">and interface_name like concat('%', #{interfaceName},
+            '%')
+        </if>
+        <if test="creator != null and creator != ''">and a.creator = #{creator}</if>
+    </select>
+
+    <select id="getStandardCaseByInterfaceId" resultMap="CaseResultMap">
+        SELECT
+            header_data,
+            body_data,
+            correlation,
+            assertion,
+            shell_status,
+            assertion_shell,
+            result_demo
+        FROM mutest.interface_case
+        WHERE interface_id = #{interfaceId} AND case_type = '标准用例'
+        LIMIT 1
+    </select>
+
+    <select id="getCaseFeature" resultMap="CaseResultMap">
+        SELECT a.id,a.creator,case_type,a.description
+        FROM
+        mutest.interface_case a
+        JOIN mutest.interface_list b ON a.interface_id = b.id
+        JOIN mutest.interface_module c ON b.module_id = c.id
+        JOIN mutest.interface_project d ON c.project_id = d.id
+        <where>
+            <if test="projectName != null and projectName != ''">and project_name = #{projectName}</if>
+            <if test="moduleName != null and moduleName != ''">and module_name = #{moduleName}</if>
+            <if test="interfaceName != null and interfaceName != ''">and interface_name = #{interfaceName}</if>
+            <if test="caseType != null and caseType != ''">and case_type = #{caseType}</if>
+            <if test="creator != null and creator != ''">and a.creator = #{creator}</if>
+        </where>
+    </select>
+
+    <insert id="addCase" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO mutest.interface_case(
+            interface_id,
+            case_type,
+            creator,
+            description,
+            header_data,
+            body_data,delay,
+            correlation,
+            assertion,
+            shell_status,
+            assertion_shell,
+            result_demo)
+        VALUES(
+            #{interfaceId},
+            #{caseType},
+            #{creator},
+            #{description},
+            #{headerData},
+            #{bodyData},
+            #{delay},
+            #{correlation},
+            #{assertion},
+            #{shellStatus},
+            #{assertionShell},
+            #{resultDemo})
+    </insert>
+</mapper>

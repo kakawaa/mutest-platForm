@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试场景详情</title>
+    <link rel="stylesheet" href="../../layui/css/layui.css">
+    <style>
+        .h1 {
+            line-height: 36px;
+            margin: 10px 0 20px 15px;
+            font-size: 17px;
+            font-weight: 400;
+            border-left: 5px solid #009E94;
+            padding-left: 8px
+        }
+    </style>
+</head>
+<body>
+
+<div class="layui-row" id="add_case" style="display:none;width: 100%">
+    <form id="add_form" class="layui-form" action="" style="margin-top: 20px;align:center;">
+        <div class="layui-form-item" style="display: table;margin-bottom: 5px;width: 95%">
+            <div class="layui-form-item" style="display: table-cell;width: 33.3%">
+                <label class="layui-form-label">平&emsp;&emsp;台</label>
+                <div class="layui-input-block">
+                    <select id="platformAdd" name="platform" lay-filter="platformAdd" lay-verify="required">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item" style="display: table-cell;width: 33.3%">
+                <label class="layui-form-label">项目名称</label>
+                <div class="layui-input-block">
+                    <select id="projectAdd" name="project" lay-filter="projectAdd" lay-verify="required">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item" style="display: table-cell;width: 33.3%">
+                <label class="layui-form-label">模&emsp;&emsp;块</label>
+                <div class="layui-input-block">
+                    <select id="moduleAdd" name="module" lay-filter="moduleAdd" lay-verify="required">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item" style="display: table;margin-bottom: 5px;width: 95%">
+            <div class="layui-form-item" style="display: table-cell;width: 33.3%">
+                <label class="layui-form-label">接口名称</label>
+                <div class="layui-input-block">
+                    <select name="interfaceName" lay-filter="interfaceName" lay-verify="required">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item" style="display: table-cell;width: 33.3%">
+                <label class="layui-form-label">用例类型</label>
+                <div class="layui-input-block">
+                    <select name="caseType" lay-filter="caseType">
+                        <option value=""></option>
+                        <option value="正常用例">正常用例</option>
+                        <option value="异常用例">异常用例</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item" style="display: table-cell;width: 33.3%">
+                <label class="layui-form-label">创&ensp;建&ensp;人</label>
+                <div class="layui-input-block">
+                    <select id="creator" name="creator" lay-filter="creator">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item" style="width:95%;">
+            <label class="layui-form-label">用&emsp;&emsp;例</label>
+            <div class="layui-input-block">
+                <select id="caseDesc" name="caseDesc" lay-filter="caseDesc" lay-verify="required">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="margin-left: 50%">
+            <div class="layui-btn-container">
+                <button class="layui-btn" lay-submit="" lay-filter="add_submit">提&ensp;交</button>
+                <button class="layui-btn layui-btn-warm" lay-filter="cancel_button">返&emsp;回</button>
+            </div>
+        </div>
+    </form>
+</div>
+<!--主页面-->
+<div>
+    <form id="testSetInfoForm" class="layui-form" action="" style="margin-top: 20px;align:center;">
+        <input type="hidden" name="id" id="id">
+        <h1 class="h1">基本信息</h1>
+        <div style="display: table;width: 95%;margin: 0 0 10px 8px">
+            <div class="layui-form-item" style="display: table-cell;width: 200px;">
+                <label class="layui-form-label-large">项&emsp;&emsp;目：</label>
+                <div class="layui-input-block" style="width: 150px;">
+                    <select id="projectName" name="projectName" lay-verify="required"></select>
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="display: table-cell">
+                <label class="layui-form-label-large">场景说明：</label>
+                <div class="layui-input-block">
+                    <input type="text" name="description" placeholder="请输入用例说明"
+                           autocomplete="off" class="layui-input" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="display: table-cell;width: 400px">
+                <label class="layui-form-label-large">场景编号：</label>
+                <div class="layui-input-block">
+                    <input class="layui-input" type="text" name="id"
+                           style="border: none;width: 100px" readonly="readonly">
+                </div>
+            </div>
+        </div>
+
+        <h1 class="h1">用例列表</h1>
+        <div style="margin:5px 20px 18px 28px">
+            <div class="layui-btn-group" style="margin-bottom: 3px">
+                <button class="layui-btn layui-btn-sm layui-btn-danger" id="up"><i class="layui-icon">&#xe619;</i>
+                </button>
+                <button class="layui-btn layui-btn-sm layui-btn-danger" id="down"><i class="layui-icon">&#xe61a;</i>
+                </button>
+                <button class="layui-btn layui-btn-sm layui-btn-danger" id="add"><i class="layui-icon">&#xe654;</i>
+                </button>
+            </div>
+            <table id="case_table" lay-filter="caseBar"></table>
+        </div>
+
+        <div class="layui-form-item" style="margin-left: 45%">
+            <div class="layui-btn-container">
+                <button class="layui-btn" lay-submit="" lay-filter="add_submit">提&ensp;交</button>
+                <button class="layui-btn layui-btn-warm" lay-filter="cancel_button" lay-submit="">返&emsp;回</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script type="text/html" id="case_lineBar">
+    <a class="layui-btn layui-btn-xs layui-btn-warm" lay-event="add">添加</a>
+    <a class="layui-btn layui-btn-xs" lay-event="detail">详情</a>
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+</script>
+
+<script src="../../layui/layui.js"></script>
+<script src="../../js/libs/jquery-2.1.1.min.js"></script>
+<script src="../../js/authority.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/publicTool.js"></script>
+<script>
+    layui.use(['table', 'layer', 'form', 'laypage', 'laydate'], function () {
+        var table = layui.table; //表格
+        var form = layui.form;
+
+        initInfo();
+        // 初始化
+        function initInfo() {
+            var testSetId = getUrlParam("id");
+            selectInit('/interface/getProject', $("#projectName"), '请选择项目');
+
+            if (testSetId > 0) {
+                $.ajax({
+                    type: 'get',
+                    url: '/interface/getTestSetById?testSetId=' + testSetId,
+                    contentType: "application/json; charset=utf-8",
+                    success: function (result) {
+                        console.log("result-------------", result);
+                        // var caseIdQueue = result.data.testSetInfo.caseIdQueue;
+                        var testSetInfo = result.data.testSetInfo;
+                        caseTable_render(result.data.caseInfoList);
+                        $("#project").empty().append(new Option(testSetInfo.projectName));
+                        $("#testSetInfoForm").setForm(testSetInfo);
+                        form.render();
+                    }, error: function (e) {
+                        console.log(e, 'error');
+                    }
+                });
+            } else {
+                var demo = {
+                    "id": 0,
+                    "platform": "示例",
+                    "project": "示例",
+                    "module": "示例",
+                    "interfaceName": "示例",
+                    "creator": "系统",
+                    "description": "该行数据仅为示例，不会被保存"
+                };
+                caseTable_render([demo]);
+            }
+        }
+
+        // 初始化用例表格
+        function caseTable_render(data) {
+            table.render({
+                elem: '#case_table',
+                id: 'caseReload'
+                , title:
+                    '用例列表'
+                , cols:
+                    [[{type: 'radio'}
+                        , {field: 'id', title: '用例编号', width: '6%', align: 'center'}
+                        , {field: 'projectName', title: '项目名称', width: '10%', align: 'center'}
+                        , {field: 'moduleName', title: '模&emsp;块', width: '10%', align: 'center'}
+                        , {field: 'interfaceName', title: '接口名称', width: '10%', align: 'center'}
+                        , {
+                            // 使用自定义模板
+                            field: 'caseType', title: '用例类型', width: '10%', align: 'center'
+                            , templet: function (d) {
+                                var caseType = d.caseType;
+                                if (caseType == '标准用例') {
+                                    return '<font color="#0000FF">标准用例</font>';
+                                } else if (caseType == '正常用例') {
+                                    return '<font color="#5FB878">正常用例</font>';
+                                } else {
+                                    return '<font color="#FF0000">异常用例</font>';
+                                }
+                            }
+                        }
+                        , {field: 'creator', title: '创建者', width: '9%', align: 'center'}
+                        , {field: 'description', title: '用例说明', align: 'center'}
+                        , {
+                            fixed: 'right',
+                            title: '操作',
+                            toolbar: '#case_lineBar',
+                            align: 'center',
+                            width: 165
+                        }
+                    ]]
+                , data: data
+            });
+        }
+
+        /**
+         * 表格行移动方法
+         */
+        var data_tr;
+        table.on('radio(caseBar)', function (obj) {
+            data_tr = $(this);
+            console.log(data_tr);
+        });
+
+        $("#up").on("click", function () {
+            var tbData = table.cache.caseReload;
+            if (data_tr == null) {
+                layer.msg("请选择元素");
+                return;
+            }
+            var tr = $(data_tr).parent().parent().parent();
+            if ($(tr).prev().html() == null) {
+                layer.msg("已经是最顶部了");
+                return false;
+            } else {
+                var tem = tbData[tr.index()];
+                var tem2 = tbData[tr.prev().index()];
+
+                $(tr).insertBefore($(tr).prev());
+                tbData[tr.index()] = tem;
+                tbData[tr.next().index()] = tem2;
+            }
+            return false;
+        });
+        // 下移
+        $("#down").on("click", function () {
+            // $("#down").on("click", function () {
+            var tbData = layui.table.cache.caseReload;
+            if (data_tr == null) {
+                layer.msg("请选择元素");
+                return false;
+            }
+            var tr = $(data_tr).parent().parent().parent();
+            if ($(tr).next().html() == null) {
+                layui.layer.msg("已经是最底部了");
+                return false;
+            } else {
+                var tem = tbData[tr.index()];
+                var tem2 = tbData[tr.next().index()];
+                $(tr).insertAfter($(tr).next());
+                tbData[tr.index()] = tem;
+                tbData[tr.prev().index()] = tem2;
+            }
+            return false;
+        });
+        $("#add").on("click", function () {
+            selectInit('/interface/getProject', $("#projectName"), '请选择项目');
+            open_form("#add_case", '', '添加用例', '', '100%', '100%');
+            return false;
+        });
+
+        //监听返回按钮点击事件
+        form.on('submit(cancel_button)', function () {
+            //当你在iframe页面关闭自身时
+            layer.confirm('未保存的数据将会丢失，确认关闭？', function () {
+                // var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                // parent.layer.close(index); //再执行关闭
+                location.href = "testSetList.html";
+            });
+            return false;
+        });
+
+        // 监听case_table行工具事件
+        table.on('tool(caseBar)', function (obj) {
+            var data = obj.data;
+            var layEvent = obj.event;
+            var caseId = data.id;
+
+            switch (layEvent) {
+                case 'del':
+                    layer.confirm('确认删除该行？', function (index) {
+                        obj.del();
+                        layer.close(index);
+                    });
+                    break;
+                case 'detail':
+                    openInfo('用例详情页', 'caseInfo.html', '#id', caseId);
+                    break;
+                case 'add':
+                    selectInit('/interface/getProject', $("#projectName"), '请选择项目');
+                    open_form("#add_case", data, '添加用例', '', '100%', '100%');
+                    break;
+            }
+        });
+
+        // form.on('select(platform)', function (data) {
+        //     var platform = data.value;
+        //     var url = '/interface/getProject?platform=' + platform;
+        //
+        //     selectInit(url, $("#project"), '项目');
+        // });
+
+        form.on('submit(add_submit)', function (data) {
+            var caseDesc = data.field.caseDesc;
+            var dataBak = table.cache.caseReload;
+            var caseInfo;
+            $.ajax({
+                type: 'get',
+                url: '/interface/getCaseByDesc?caseDesc=' + caseDesc,
+                success: function (result) {
+                    caseInfo = result.data;
+                    dataBak.push(caseInfo);
+                    table.reload('caseReload', {data: dataBak});
+                }
+            });
+            layer.close(index);
+            layer.msg('修改成功', {icon: 1, time: 1000});
+            return false;
+        });
+
+        form.on('submit(update_submit)', function (data) {
+            data.field.casesInfo = table.cache.caseReload;
+            data.field.creator = currentUser().nickname;
+
+            $.ajax({
+                type: 'post',
+                url: "/interface/updateTestSet",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(data.field),//提交的数据
+                dataType: "json",
+                success: function (msg) {
+                    if (msg.code == "0") {
+                        layer.msg(msg.message, {icon: 1, time: 1000});
+                        parent.layui.table.reload('testSetReload', {
+                            contentType: 'application/x-www-form-urlencoded',
+                            page: {
+                                curr: 1
+                            },
+                            url: '/interface/testSetList'
+                            , method: 'get'
+                        });
+                        var index = parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index); //再执行关闭
+                    } else {  //失败
+                        layer.alert(msg.message, {icon: 2});
+                    }
+                }
+            });
+            return false;
+        });
+
+        form.on('select(platformAdd)', function (data) {
+            var platform = data.value;
+            var url = '/interface/getProject?platform=' + platform;
+            var select = $("#projectAdd");
+            selectInit(url, select, '项目');
+        });
+
+        form.on('select(projectAdd)', function (data) {
+            var platform = $('#platformAdd option:selected').val();
+            var project = data.value;
+            var url = '/interface/getModule?platform=' + platform + '&project=' + project;
+            var select = $("#moduleAdd");
+            selectInit(url, select, '项目');
+        });
+
+        form.on('select(moduleAdd)', function (data) {
+            var platform = $('#platformAdd option:selected').val();
+            var project = $('#projectAdd option:selected').val();
+            var module = data.value;
+            var url = '/interface/getInterface?platform=' + platform + '&project=' + project + "&module=" + module;
+            var select = $("select[name='interfaceName']");
+
+            selectInit(url, select, '接口');
+        });
+
+        form.on('select(interfaceName)', function (data) {
+            var platform = $('#platformAdd option:selected').val();
+            var project = $('#projectAdd option:selected').val();
+            var module = $('#moduleAdd option:selected').val();
+            var interfaceName = data.value;
+            var select = $("#creator");
+            var url = '/interface/getcreators?platform=' + platform + '&project=' + project + "&module=" + module + '&interfaceName=' + interfaceName;
+            selectInit(url, select, '创建者');
+
+            var sentData = {};
+            sentData.platform = platform;
+            sentData.project = project;
+            sentData.module = module;
+            sentData.interfaceName = interfaceName;
+            getCaseDesc(sentData);
+        });
+
+        form.on('select(creator)', function () {
+            getCaseDesc(form2JsonString("#add_form"));
+        });
+
+        form.on('select(caseType)', function () {
+            getCaseDesc(form2JsonString("#add_form"));
+        });
+
+        function getCaseDesc(data) {
+            var select = $("#caseDesc");
+            select.empty().append(new Option(""));
+            $.ajax({
+                type: 'POST',
+                url: '/interface/getCaseDesc',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(data),
+                success: function (data) {
+                    $.each(data.data, function (index, item) {
+                        select.append(new Option(item));
+                    });
+                    layui.form.render();
+                }, error: function (e) {
+                    console.log(e, 'error');
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

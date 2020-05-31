@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mutest.dao.base.InterfaceGroupDao">
+    <resultMap id="GroupResultMap" type="com.mutest.model.interfaces.GroupInfo">
+        <result column="group_name" property="groupName"/>
+        <result column="group_leader" property="groupLeader"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+    </resultMap>
+
+    <select id="getGroupList" resultMap="GroupResultMap">
+        SELECT
+            *
+        FROM
+            mutest.interface_group
+    </select>
+
+    <update id="updateGroup" parameterType="com.mutest.model.interfaces.GroupInfo">
+        UPDATE
+        mutest.interface_group
+        SET
+        <if test="groupName != null and groupName !=''">group_name = #{groupName},</if>
+        <if test="groupLeader != null and groupLeader !=''">group_leader = #{groupLeader},</if>
+        <if test="description != null and description !=''">description = #{description}</if>
+        WHERE
+        id = #{id}
+        on duplicate key update
+        group_id = values(group_id),
+        user_id = values(user_id)
+    </update>
+
+    <select id="searchGroup" resultMap="GroupResultMap">
+        SELECT
+        *
+        FROM
+        mutest.interface_group
+        <where>
+            <if test="groupName != null and groupName != ''">and group_name like concat('%',
+                #{groupName},
+                '%')
+            </if>
+            <if test="groupLeader != null and groupLeader != ''">and group_leader like concat('%',
+                #{groupLeader},
+                '%')
+            </if>
+        </where>
+    </select>
+
+    <insert id="addGroupUserBatch">
+        INSERT INTO mutest.interface_group_user(group_id,user_id)
+        VALUES
+        <foreach collection="userList" item="user" separator=",">
+            (#{groupId},#{user.value})
+        </foreach>
+        on duplicate key update
+        group_id = values(group_id),
+        user_id = values(user_id)
+    </insert>
+
+    <delete id="deleteGroupUserBatch">
+        DELETE FROM mutest.interface_group_user
+        WHERE group_id = #{groupId} AND user_id IN
+        <foreach collection="userList" item="user" open="(" separator="," close=")">${user.value}</foreach>
+    </delete>
+
+    <insert id="addGroupProjectBatch">
+        INSERT INTO mutest.interface_group_project(group_id,project_id)
+        VALUES
+        <foreach collection="projectList" item="project" separator=",">
+            (#{groupId},#{project.value})
+        </foreach>
+        on duplicate key update
+        group_id = values(group_id),
+        project_id = values(project_id)
+    </insert>
+
+    <delete id="deleteGroupProjectBatch">
+        DELETE FROM mutest.interface_group_project
+        WHERE group_id = #{groupId} AND project_id IN
+        <foreach collection="projectList" item="project" open="(" separator="," close=")">${project.value}</foreach>
+    </delete>
+</mapper>

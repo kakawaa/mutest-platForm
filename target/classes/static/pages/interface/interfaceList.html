@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>接口管理</title>
+    <link rel="stylesheet" href="../../layui/css/layui.css">
+</head>
+<body>
+
+<div style="font-size: 13px">
+    <!-- 表格区域 -->
+    <table id="interface_table" lay-filter="interfaceBar"></table>
+</div>
+
+<!--form表单-->
+<div class="layui-row" id="add_div" style="display: none;margin-top: 10px">
+    <div class="layui-col-md11">
+        <form id="add_form" class="layui-form" action="" style="margin-top: 20px;align:center;">
+            <!--隐藏字段-->
+            <input type="hidden" name="action" id="action">
+            <input type="hidden" name="id" id="id">
+            <input type="hidden" name="type" id="type">
+            <input type="hidden" name="projectId">
+            <input type="hidden" name="creator">
+
+            <div class="layui-form-item" style="display: table;width: 100%">
+                <div class="layui-form-item" style="display: table-cell;width: 50%">
+                    <label class="layui-form-label">项目名称</label>
+                    <div class="layui-input-block">
+                        <select id="projectNameAdd" name="projectName" lay-filter="projectNameAdd"
+                                lay-verify="required">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item" style="display: table-cell;width: 50%">
+                    <label class="layui-form-label">模&emsp;&emsp;块</label>
+                    <div class="layui-input-block">
+                        <select id="moduleNameAdd" name="moduleName" lay-filter="moduleNameAdd" lay-verify="required">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item" style="display: table;width: 100%">
+                <div class="layui-form-item" style="display: table-cell;width: 50%">
+                    <label class="layui-form-label">接口名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="interfaceName" placeholder="请输入用例名称"
+                               autocomplete="off" class="layui-input" lay-verify="required">
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="display: table-cell;width: 50%">
+                    <label class="layui-form-label">路&emsp;&emsp;径</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="path" placeholder="请输入接口路径"
+                               autocomplete="off" class="layui-input" lay-verify="required">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item" style="display: table;width: 100%">
+                <div class="layui-form-item" style="display: table-cell;width: 50%">
+                    <label class="layui-form-label">请求方法</label>
+                    <div class="layui-input-block">
+                        <select name="method" lay-filter="method" lay-verify="required">
+                            <option value=""></option>
+                            <option value="GET">GET</option>
+                            <option value="POST">POST</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item" style="display: table-cell;width: 50%">
+                    <label class="layui-form-label">参数格式</label>
+                    <div class="layui-input-block">
+                        <select name="paramType" lay-filter="paramType" lay-verify="required">
+                            <option value=""></option>
+                            <option value="form">form</option>
+                            <option value="JSON">JSON</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="width: 100%">
+                <label class="layui-form-label">接口说明</label>
+                <div class="layui-input-block">
+                    <textarea name="description" placeholder="请输入接口描述" class="layui-textarea"></textarea>
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="margin-left: 40%">
+                <div class="layui-btn-group">
+                    <button class="layui-btn" lay-submit="" lay-filter="update_submit">提&ensp;交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重&ensp;置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="../../layui/layui.js"></script>
+<script src="../../js/libs/jquery-2.1.1.min.js"></script>
+<script src="../../js/authority.js"></script>
+<script src="../../js/common.js"></script>
+<script src="interfaceList.js"></script>
+<script src="../../js/publicTool.js"></script>
+<!--头部工具按钮-->
+<script type="text/html" id="interface_headerBar">
+    <!--搜索框-->
+    <div style="display: table">
+        <div style="display: table-cell">
+            <form class="layui-form" id="search_form">
+                <div class="layui-input-block" style="display: table-cell">
+                    <label>项&ensp;目&ensp;</label>
+                    <div class="layui-input-inline" style="width: 160px">
+                        <select id="projectNameSearch" name="projectName" lay-filter="projectNameSearch">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-input-block" style="display: table-cell">
+                    <label>&ensp;模&ensp;块&ensp;</label>
+                    <div class="layui-input-inline" style="width: 160px">
+                        <select id="moduleNameSearch" name="moduleName">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-input-block" style="display: table-cell">
+                    <label>&ensp;接&ensp;口&ensp;</label>
+                    <div class="layui-input-inline" style="width: 160px">
+                        <input type="text" name="interfaceName" placeholder="支持模糊查询"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div style="display: table-cell">
+                    <button class="layui-btn layui-btn-sm layui-btn-danger" lay-submit lay-filter="search"
+                            style="margin-left: 15px"><i class="layui-icon">&#xe615;</i>搜&emsp;索
+                    </button>
+                    <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">
+                        <i class="layui-icon">&#xe631;</i>重&emsp;置
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div style="display: table-cell">
+            <!--新增-->
+            <div style="display: table-cell">
+                <button class="layui-btn layui-btn-sm" lay-event="add" style="margin-left: 15px">
+                    <i class="layui-icon">&#xe608;</i> 新&emsp;增
+                </button>
+            </div>
+            <!--刷新-->
+            <div style="display: table-cell;">
+                <button class="layui-btn layui-btn-normal layui-btn-sm" lay-event="refresh" style="margin-left: 15px">
+                    <i class="layui-icon">&#xe669;</i> 刷&emsp;新
+                </button>
+            </div>
+        </div>
+    </div>
+</script>
+<!--行工具按钮-->
+<script type="text/html" id="interface_lineBar">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="delete">删除</a>
+</script>
+
+<!--&lt;!&ndash;管理tab切换&ndash;&gt;-->
+<!--<script>-->
+<!--    //JavaScript代码区域-->
+<!--    layui.use('element', function () {-->
+<!--        var element = layui.element;-->
+<!--    });-->
+<!--</script>-->
+</body>
+</html>

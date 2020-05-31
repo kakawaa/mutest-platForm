@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>首页--layui后台管理模板 2.0</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="../../css/public.css" media="all"/>
+</head>
+<body class="childrenBody" style="height: 100%">
+<div class="layui-carousel" id="test1">
+    <div carousel-item style="height: 100%;">
+        <div><img src="../../img/main/1.jpg" alt="" style="width: 100%;height: auto"></div>
+        <div><img src="../../img/main/2.jpg" alt="" style="width: 100%;height: auto"></div>
+        <div><img src="../../img/main/3.jpg" alt="" style="width: 100%;height: auto"></div>
+        <div><img src="../../img/main/4.jpg" alt="" style="width: 100%;height: auto"></div>
+        <div><img src="../../img/main/5.jpg" alt="" style="width: 100%;height: auto"></div>
+    </div>
+</div>
+<!-- 条目中可以是任意内容，如：<img src=""> -->
+
+<script src="../../layui/layui.js"></script>
+<script>
+    layui.use('carousel', function () {
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#test1'
+            , width: '100%' //设置容器宽度
+            , height: '800px' //设置容器高度
+            , arrow: 'always' //始终显示箭头
+            , indicator: 'inside'
+            //,anim: 'updown' //切换动画方式
+        });
+    });
+</script>
+</body>
+</html>

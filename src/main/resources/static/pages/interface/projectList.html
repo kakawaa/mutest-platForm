@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>接口测试场景</title>
+    <link rel="stylesheet" href="../../layui/css/layui.css">
+</head>
+<body>
+<div style="font-size: 13px">
+    <!-- 表格区域 -->
+    <table id="project_table" lay-filter="projectBar"></table>
+</div>
+
+<div class="layui-row" id="add_div" style="display:none">
+    <div class="layui-col-md11">
+        <form id="add_form" class="layui-form" action="" style="margin-top: 20px;align:center;">
+            <!--隐藏字段action,区分添加和修改-->
+            <input type="hidden" name="action" id="action">
+            <!--隐藏字段id,用于提供修改需要的主键-->
+            <input type="hidden" name="id" id="id">
+            <!--隐藏字段请求type,用于提供请求方式:get,post,put-->
+            <input type="hidden" name="type" id="type">
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">项目名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="projectName" placeholder="请输入项目名称"
+                           autocomplete="off" class="layui-input" lay-verify="required">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">请求地址</label>
+                <div class="layui-input-block">
+                    <input type="text" name="url" placeholder="请输入请求地址"
+                           autocomplete="off" class="layui-input" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">用例说明</label>
+                <div class="layui-input-block">
+                    <input type="text" name="description" placeholder="请输入项目说明"
+                           autocomplete="off" class="layui-input" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="margin-left: 40%">
+                <div class="layui-btn-group">
+                    <button class="layui-btn" lay-submit="" lay-filter="update_submit">提&ensp;交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重&ensp;置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="../../layui/layui.js"></script>
+<script src="../../js/libs/jquery-2.1.1.min.js"></script>
+<script src="../../js/authority.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/publicTool.js"></script>
+
+<!--头部工具按钮-->
+<script type="text/html" id="project_headerBar">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="add">
+            <i class="layui-icon">&#xe608;</i> 新&emsp;增
+        </button>
+        <button class="layui-btn layui-btn-normal layui-btn-sm" lay-event="refresh">
+            <i class="layui-icon">&#xe669;</i> 刷&emsp;新
+        </button>
+    </div>
+</script>
+<script type="text/html" id="project_lineBar">
+    <a class="layui-btn layui-btn-xs" lay-event="tree">结构图</a>
+    <a class="layui-btn layui-btn-xs layui-btn-warm" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+</script>
+
+<script>
+    layui.use(['table', 'layer', 'form', 'laypage', 'laydate'], function () {
+        var table = layui.table //表格
+            , layer = layui.layer //弹层
+            , form = layui.form; //form表单
+        //执行实例
+        table.render({
+            elem: '#project_table'
+            , id: 'projectReload'
+            // , skin: 'line' //行边框风格
+            , even: true //开启隔行背景
+            , url: '/interface/projectList'
+            , request: {
+                pageName: 'pageNum',
+                limitName: 'pageSize'
+            }
+            , toolbar: '#project_headerBar'
+            , title:
+                '项目列表'
+            , page:
+                true //开启分页
+            , limit: 10
+            , limits: [1, 5, 10, 20, 50, 100]
+            , cols:
+                [[{field: 'number', title: '序号', width: 60, align: 'center', type: 'numbers'}
+                    , {field: 'projectName', title: '项目名称', width: '8%', align: 'center'}
+                    , {field: 'url', title: '请求地址', width: '20%', align: 'center'}
+                    , {field: 'creator', title: '创建者', width: '9%', align: 'center'}
+                    , {field: 'description', title: '项目说明', align: 'center'}
+                    , {field: 'id', title: '项目ID', width: '8%', align: 'center', hide: true}
+                    , {
+                        field: 'createTime',
+                        title: '修改时间',
+                        align: 'center',
+                    }
+                    , {
+                        field: 'modifyTime',
+                        title: '修改时间',
+                        align: 'center',
+                        hide: true
+                    }
+                    , {
+                        fixed: 'right',
+                        title: '操作',
+                        toolbar: '#project_lineBar',
+                        width: 210,
+                        align: 'center'
+                    }
+                ]]
+        });
+        //监听头部工具事件
+        table.on('toolbar(projectBar)', function (obj) {
+            var checkStatus = table.checkStatus(obj.config.id);
+            var data = checkStatus.data;
+            switch (obj.event) {
+                case 'refresh':
+                    tableReload('projectReload', '', 'application/x-www-form-urlencoded', '/interface/projectList', 'get');
+                    break;
+                case 'add':
+                    data = {};
+                    data.action = 'addProject';
+                    data.type = 'post';
+                    open_form("#add_div", data, '添加项目', 'url', '610px', '290px');
+                    break;
+            }
+        });
+
+        // 监听行工具事件
+        table.on('tool(projectBar)', function (obj) {
+            var data = obj.data;
+            var layEvent = obj.event;
+            var caseId = data.id;
+
+            switch (layEvent) {
+                case 'edit':
+                    data.action = 'updateProject';
+                    data.type = 'put';
+                    open_form("#add_div", data, '编辑项目', 'url', '610px', '290px');
+                    break;
+                case 'detail':
+                    openInfo('用例详情页', 'caseInfo.html', "#id", caseId);
+                    // window.location = 'caseInfo.html?id=' + caseId;
+                    break;
+
+                case 'delete':
+                    layer.confirm('删除该用例将同时删除包含该用例的测试集合，请确认', {
+                        skin: 'layui-layer-molv'
+                        , closeBtn: 1
+                        , btn: ['确定', '取消']
+                        , yes: function () {
+                            $.ajax({
+                                type: 'get',
+                                url: '/interface/deleteCaseById?caseId=' + caseId,
+                                contentType: "application/json; charset=utf-8",
+                                success: function (result) {
+                                    layer.msg(result.msg, {
+                                        icon: 1,
+                                        time: 1000
+                                    });
+                                }, error: function (e) {
+                                    console.log(e, 'error');
+                                }
+                            });
+                        },
+                        btn2: function () {
+                            layer.msg('好的,暂时不执行', {
+                                icon: 1,
+                                time: 1000
+                            });
+                        }
+                    });
+                    break;
+            }
+        });
+
+        // 监听保存提交事件
+        form.on('submit(update_submit)', function (data) {
+            var uri = data.field.action;
+            var type = data.field.type;
+
+            $.ajax({
+                type: type,
+                url: "/interface/" + uri,
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(data.field),
+                dataType: "json",
+                success: function (result) {
+                    if (result.code === "0") {
+                        tableReload('projectReload', '', 'application/x-www-form-urlencoded', '/interface/projectList', 'get');
+                        layer.close(index);
+                        layer.msg(result.msg, {icon: 1, time: 1000});
+                    } else {
+                        layer.alert(result.msg, {
+                            icon: 2,
+                            time: 2000
+                        });
+                    }
+                }
+            });
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mutest.dao.base.InterfaceProjectDao">
+    <resultMap id="ProjectResultMap" type="com.mutest.model.interfaces.ProjectInfo">
+        <result column="project_name" property="projectName"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+    </resultMap>
+
+    <select id="getProjectList" resultMap="ProjectResultMap">
+        SELECT * FROM mutest.interface_project
+    </select>
+
+    <update id="updateProject" parameterType="com.mutest.model.interfaces.ProjectInfo">
+        UPDATE
+        mutest.interface_project
+        SET
+        <if test="projectName != null and projectName !=''">project_name = #{projectName},</if>
+        <if test="url != null and url !=''">url = #{url},</if>
+        <if test="creator != creator and creator !=''">creator = #{creator},</if>
+        <if test="description != null and description !=''">description = #{description}</if>
+        WHERE
+        id = #{id}
+    </update>
+</mapper>

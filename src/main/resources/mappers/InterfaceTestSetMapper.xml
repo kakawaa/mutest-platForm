@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mutest.dao.base.InterfaceTestSetDao">
+    <resultMap id="TestSetMap" type="com.mutest.model.interfaces.TestSetInfo">
+        <result column="project_id" property="projectId"/>
+        <result column="project_name" property="projectName"/>
+        <result column="case_id_queue" property="caseIdQueue"/>
+        <result column="case_name_queue" property="caseNameQueue"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+    </resultMap>
+
+    <resultMap id="TestSetResultMap" type="com.mutest.model.interfaces.TestSetResult">
+        <result column="project_name" property="projectName"/>
+        <result column="test_set_id" property="testSetId"/>
+        <result column="execute_id" property="executeId"/>
+        <result column="case_name_queue" property="caseNameQueue"/>
+        <result column="case_count" property="caseCount"/>
+        <result column="failed_count" property="failedCount"/>
+        <result column="failed_list" property="failedList"/>
+    </resultMap>
+
+    <resultMap id="CaseResultMap" type="com.mutest.model.interfaces.CaseResult">
+        <result column="execute_id" property="executeId"/>
+        <result column="case_id" property="caseId"/>
+        <result column="interface_name" property="interfaceName"/>
+        <result column="case_request" property="caseRequest"/>
+        <result column="case_response" property="caseResponse"/>
+        <result column="case_assertion" property="caseAssertion"/>
+        <result column="header_data" property="headerData"/>
+        <result column="body_data" property="bodyData"/>
+        <result column="assertion_detail" property="assertionDetail"/>
+    </resultMap>
+
+    <select id="getTestSetList" resultMap="TestSetMap">
+        SELECT  a.id,
+        project_id,
+        project_name,
+        case_id_queue,
+        case_name_queue,
+        a.creator,
+        a.description,
+        a.create_time,
+        a.modify_time
+        FROM mutest.interface_test_set a
+        JOIN mutest.interface_project b
+        ON a.project_id = b.id
+    </select>
+
+    <select id="getTestSetById" resultMap="TestSetMap">
+       SELECT
+        a.id,
+        project_id,
+        project_name,
+        case_id_queue,
+        case_name_queue,
+        a.creator,
+        a.description,
+        a.create_time,
+        a.modify_time
+        FROM mutest.interface_test_set a
+        JOIN mutest.interface_project b
+        ON a.project_id = b.id
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="searchTestSet" resultMap="TestSetMap">
+        SELECT *
+        FROM mutest.interface_test_set
+        <where>
+            <if test="projectName != null and projectName != ''">and project_name = #{projectName}</if>
+            <if test="creator != null and creator != ''">and creator like concat('%', #{creator}, '%')</if>
+        </where>
+    </select>
+
+    <select id="getTestSetResultList" resultMap="TestSetResultMap">
+        SELECT project_name,test_set_id,execute_id,a.id,case_count,case_name_queue,failed_count,failed_list,executor,a.create_time
+        FROM mutest.interface_set_result a
+        JOIN mutest.interface_test_set b ON a.test_set_id = b.id
+        JOIN mutest.interface_project c ON b.project_id=c.id
+        ORDER BY a.create_time DESC
+    </select>
+
+    <select id="getCaseResultList" resultMap="CaseResultMap">
+        SELECT *
+        FROM mutest.interface_case_result
+        WHERE execute_id = #{executeId}
+    </select>
+
+    <select id="searchTestSetResult" resultMap="TestSetResultMap">
+        SELECT project_name,test_set_id,execute_id,a.id,case_count,case_name_queue,failed_count,failed_list,executor,a.create_time
+        FROM mutest.interface_set_result a
+        JOIN mutest.interface_test_set b ON a.test_set_id = b.id
+        JOIN mutest.interface_project c ON b.project_id=c.id
+        <where>
+            <if test="projectName != null and projectName != ''">and project_name = #{projectName}</if>
+            <if test="executor != null and executor != ''">and executor like concat('%', #{executor}, '%')</if>
+        </where>
+        ORDER BY a.create_time DESC
+    </select>
+
+    <delete id="deleteTestSetBatch" parameterType="com.mutest.model.interfaces.TestSetInfo">
+        delete from mutest.interface_test_set where id
+        in
+        <foreach collection="list" item="item" index="index" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+</mapper>

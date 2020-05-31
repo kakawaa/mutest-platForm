@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="90c5f663-5599-45a9-befe-b1b72dde9d1b" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="354" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="Kotlin File" />
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\application\work\apache-maven-3.6.3\respository" />
+        <option name="userSettingsFile" value="D:\application\work\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Xxd2Y6pXIrWwUxYaSx4kOipNCh" />
+  <component name="ProjectViewState">
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.mutest.advice.interfaces" />
+      <recent name="com.mutest.dao.base" />
+      <recent name="com.mutest.model.interfaces" />
+      <recent name="com.mutest.service.interfaces.impl" />
+      <recent name="com.mutest.service.interfaces" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\project\58coin\mutest-platForm\src\main\resources\static" />
+      <recent name="E:\project\58coin\mutest-platForm\src\main\resources\static\layui" />
+      <recent name="E:\project\58coin\mutest-platForm\src\main\resources\static\layui\css" />
+      <recent name="E:\project\58coin\mutest-platForm\src\main\resources\mappers" />
+      <recent name="E:\project\58coin\mutest-platForm\src\main\resources\static\layui\lay\modules" />
+    </key>
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8086/interface/executeCase" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.MutestApplication">
+    <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.mutest.Demo" />
+      <module name="mutest-platForm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mutest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MutestApplication#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/MutestApplication.http" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="MutestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="mutest-platForm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mutest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.mutest.MutestApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.MutestApplication" />
+        <item itemvalue="Application.Demo" />
+        <item itemvalue="HTTP Request.MutestApplication#1" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="90c5f663-5599-45a9-befe-b1b72dde9d1b" name="Default Changelist" comment="" />
+      <created>1581991473218</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581991473218</updated>
+      <workItem from="1581991476084" duration="3102000" />
+      <workItem from="1581994590669" duration="582000" />
+      <workItem from="1581995185682" duration="1707000" />
+      <workItem from="1583378544821" duration="16862000" />
+      <workItem from="1583982601652" duration="1117000" />
+      <workItem from="1584090191246" duration="5759000" />
+      <workItem from="1584703045789" duration="1196000" />
+      <workItem from="1584948350473" duration="71000" />
+      <workItem from="1585099031731" duration="4658000" />
+      <workItem from="1585915629036" duration="293000" />
+      <workItem from="1585969641109" duration="62000" />
+      <workItem from="1585985504598" duration="13000" />
+      <workItem from="1586055387390" duration="2090000" />
+      <workItem from="1586069206382" duration="1037000" />
+      <workItem from="1586327178547" duration="252000" />
+      <workItem from="1586327687894" duration="651000" />
+      <workItem from="1587952335351" duration="6323000" />
+      <workItem from="1587968600793" duration="21747000" />
+      <workItem from="1588041132400" duration="1154000" />
+      <workItem from="1588043189473" duration="1278000" />
+      <workItem from="1588071353787" duration="885000" />
+      <workItem from="1588126987259" duration="13807000" />
+      <workItem from="1588390334645" duration="3015000" />
+      <workItem from="1588469170452" duration="17383000" />
+      <workItem from="1588588100666" duration="6457000" />
+      <workItem from="1588642133748" duration="19002000" />
+      <workItem from="1589193791319" duration="3442000" />
+      <workItem from="1589370144941" duration="17000" />
+      <workItem from="1589424542827" duration="16261000" />
+      <workItem from="1589505865978" duration="29498000" />
+      <workItem from="1589592824934" duration="11380000" />
+      <workItem from="1589619492435" duration="2783000" />
+      <workItem from="1589770409981" duration="20413000" />
+      <workItem from="1589885398968" duration="7082000" />
+      <workItem from="1589893724869" duration="299000" />
+      <workItem from="1589894039702" duration="847000" />
+      <workItem from="1589937689515" duration="17932000" />
+      <workItem from="1589963439190" duration="37000" />
+      <workItem from="1589963516839" duration="198000" />
+      <workItem from="1589963929330" duration="11610000" />
+      <workItem from="1590029163048" duration="13697000" />
+      <workItem from="1590050001053" duration="14806000" />
+      <workItem from="1590110723087" duration="28697000" />
+      <workItem from="1590196547795" duration="9781000" />
+      <workItem from="1590407084218" duration="4110000" />
+      <workItem from="1590459611839" duration="15825000" />
+      <workItem from="1590544426318" duration="165000" />
+      <workItem from="1590548954598" duration="20836000" />
+      <workItem from="1590629659640" duration="25419000" />
+      <workItem from="1590738821340" duration="5954000" />
+      <workItem from="1590803452101" duration="3177000" />
+      <workItem from="1590887689648" duration="3350000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="179" key="#Inspections" timestamp="1590652849866">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="179" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1590652849866" />
+    <state x="682" y="310" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589964883969">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="682" y="310" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1589964883969" />
+    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser" timestamp="1589801259908">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1589801259908" />
+    <state x="596" y="436" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1587968895885">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="596" y="436" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587968895885" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589963234139">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589963234139" />
+    <state x="775" y="427" width="394" height="186" key="Github.CreateGistDialog" timestamp="1588043440862">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="775" y="427" width="394" height="186" key="Github.CreateGistDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588043440862" />
+    <state width="1877" height="315" key="GridCell.Tab.0.bottom" timestamp="1590757752765">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="315" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590757752765" />
+    <state width="1877" height="315" key="GridCell.Tab.0.center" timestamp="1590757752765">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="315" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590757752765" />
+    <state width="1877" height="315" key="GridCell.Tab.0.left" timestamp="1590757752765">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="315" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590757752765" />
+    <state width="1877" height="315" key="GridCell.Tab.0.right" timestamp="1590757752765">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="315" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590757752765" />
+    <state width="1877" height="315" key="GridCell.Tab.1.bottom" timestamp="1590757752765">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="315" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590757752765" />
+    <state width="1877" height="315" key="GridCell.Tab.1.center" timestamp="1590757752765">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="315" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590757752765" />
+    <state width="1877" height="315" key="GridCell.Tab.1.left" timestamp="1590757752765">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="315" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590757752765" />
+    <state width="1877" height="315" key="GridCell.Tab.1.right" timestamp="1590757752765">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="315" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590757752765" />
+    <state width="1877" height="360" key="GridCell.Tab.2.bottom" timestamp="1590670365662">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="360" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590670365662" />
+    <state width="1877" height="360" key="GridCell.Tab.2.center" timestamp="1590670365661">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="360" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590670365661" />
+    <state width="1877" height="360" key="GridCell.Tab.2.left" timestamp="1590670365661">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="360" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590670365661" />
+    <state width="1877" height="360" key="GridCell.Tab.2.right" timestamp="1590670365661">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="360" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590670365661" />
+    <state x="479" y="168" key="SettingsEditor" timestamp="1588044225596">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="479" y="168" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588044225596" />
+    <state x="626" y="237" width="807" height="632" key="find.popup" timestamp="1590576492107">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="626" y="237" width="807" height="632" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590576492107" />
+    <state x="334" y="126" key="new project wizard" timestamp="1590666079688">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="334" y="126" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1590666079688" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1589887784988">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589887784988" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1590460352367">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590460352367" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/mutest_platForm$MutestApplication.ic" NAME="MutestApplication Coverage Results" MODIFIED="1590660979083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.mutest.*</FILTER>
+    </SUITE>
+  </component>
+</project>

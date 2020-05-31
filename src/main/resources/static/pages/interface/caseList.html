@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>接口列表</title>
+    <link rel="stylesheet" href="../../layui/css/layui.css">
+</head>
+<body>
+
+<div style="font-size: 13px">
+    <!-- 表格区域 -->
+    <table id="case_table" lay-filter="caseBar"></table>
+    <!-- 响应结果 -->
+    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+        <ul class="layui-tab-title">
+            <li class="layui-this" lay-id="11">响应结果</li>
+            <li lay-id="22">请求信息</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show"
+                 style="margin:8px 15px 20px 15px;padding: 3px;overflow-wrap: break-word"
+                 id="showReport">
+                <pre id="showResponse"></pre>
+            </div>
+            <div class="layui-tab-item"
+                 style="margin:8px 15px 20px 15px;overflow-wrap: break-word"
+                 id="showError">请求信息
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="layui-row" id="add_div" style="display:none">
+    <div class="layui-col-md11">
+        <form id="add_form" class="layui-form" action="" style="margin-top: 20px;align:center;">
+            <!--隐藏字段action,区分添加和修改-->
+            <input type="hidden" name="action" id="action">
+            <!--隐藏字段id,用于提供修改需要的主键-->
+            <input type="hidden" name="id" id="id">
+            <!--隐藏字段请求type,用于提供请求方式:get,post,put-->
+            <input type="hidden" name="type" id="type">
+            <!--隐藏字段请求projectId-->
+            <input type="hidden" name="projectId" id="projectId">
+            <!--隐藏字段请求creator-->
+            <input type="hidden" name="creator">
+
+            <div class="layui-form-item" style="display: table;width: 100%">
+                <div class="layui-form-item" style="display: table-cell;width: 50%">
+                    <label class="layui-form-label">项目名称</label>
+                    <div class="layui-input-block">
+                        <select id="projectNameAdd" name="projectName" lay-filter="projectNameAdd"
+                                lay-verify="required" lay-search="">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item" style="display: table-cell;width: 50%">
+                    <label class="layui-form-label">模&emsp;&emsp;块</label>
+                    <div class="layui-input-block">
+                        <select id="moduleNameAdd" name="moduleName" lay-filter="moduleNameAdd" lay-verify="required" lay-search="">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="display: table;width: 100%">
+                <div class="layui-form-item" style="display: table-cell;width: 50%">
+                    <label class="layui-form-label">接口名称</label>
+                    <div class="layui-input-block">
+                        <select id="interfaceName" name="interfaceName" lay-filter="interfaceName"
+                                lay-verify="required" lay-search="">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="display: table;width: 100%">
+                <div class="layui-form-item" style="display: table-cell;width: 50%">
+                    <label class="layui-form-label">用例类型</label>
+                    <div class="layui-input-block">
+                        <select name="caseType" lay-filter="caseType" lay-verify="required">
+                            <option value=""></option>
+                            <option value="标准用例">标准用例</option>
+                            <option value="正常用例">正常用例</option>
+                            <option value="异常用例">异常用例</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item" style="display: table-cell;width: 50%">
+                    <label class="layui-form-label">前置延迟</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="delay" placeholder="请输入前置延迟（ms）"
+                               autocomplete="off" class="layui-input" lay-verify="required|number">
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="width: 100%">
+                <label class="layui-form-label">用例说明</label>
+                <div class="layui-input-block">
+                    <textarea name="description" placeholder="请输入接口描述" class="layui-textarea"></textarea>
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="margin-left: 40%">
+                <div class="layui-btn-group">
+                    <button class="layui-btn" lay-submit="" lay-filter="update_submit">提&ensp;交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重&ensp;置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="../../layui/layui.js"></script>
+<script src="../../js/libs/jquery-2.1.1.min.js"></script>
+<script src="../../js/authority.js"></script>
+<script src="../../js/common.js"></script>
+<script src="caseList.js"></script>
+<script src="../../js/publicTool.js"></script>
+
+<!--头部工具按钮-->
+<script type="text/html" id="case_headerBar">
+    <!--搜索框-->
+    <div style="display: table">
+        <div style="display: table-cell">
+            <form class="layui-form" id="search_form">
+                <div class="layui-input-block" style="display: table-cell">
+                    <label>项&ensp;目&ensp;</label>
+                    <div class="layui-input-inline" style="width: 130px">
+                        <select id="projectNameSearch" name="projectName" lay-filter="projectNameSearch">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-input-block" style="display: table-cell">
+                    <label>&ensp;模&ensp;块&ensp;</label>
+                    <div class="layui-input-inline" style="width: 130px">
+                        <select id="moduleNameSearch" name="moduleName">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-input-block" style="display: table-cell">
+                    <label>&ensp;接&ensp;口&ensp;</label>
+                    <div class="layui-input-inline" style="width: 130px">
+                        <input type="text" name="interfaceName" placeholder="支持模糊查询"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-input-block" style="display: table-cell">
+                    <label>&ensp;创建人&ensp;</label>
+                    <div class="layui-input-inline" style="width: 130px">
+                        <input type="text" name="creator" placeholder="支持模糊查询"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div style="display: table-cell">
+                    <button class="layui-btn layui-btn-sm layui-btn-danger" lay-submit lay-filter="search"
+                            style="margin-left: 15px"><i class="layui-icon">&#xe615;</i>搜&emsp;索
+                    </button>
+                    <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">
+                        <i class="layui-icon">&#xe631;</i>重&emsp;置
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div style="display: table-cell">
+            <!--新增-->
+            <div style="display: table-cell">
+                <button class="layui-btn layui-btn-sm" lay-event="add" style="margin-left: 15px">
+                    <i class="layui-icon">&#xe608;</i> 新&emsp;增
+                </button>
+            </div>
+            <!--刷新-->
+            <div style="display: table-cell;">
+                <button class="layui-btn layui-btn-normal layui-btn-sm" lay-event="refresh" style="margin-left: 15px">
+                    <i class="layui-icon">&#xe669;</i> 刷&emsp;新
+                </button>
+            </div>
+        </div>
+    </div>
+</script>
+<!--行工具按钮-->
+<script type="text/html" id="case_lineBar">
+    <a class="layui-btn layui-btn-xs" lay-event="execute">执行</a>
+    <a class="layui-btn layui-btn-xs layui-btn-warm" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="detail">详情</a>
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="delete">删除</a>
+</script>
+
+<!--&lt;!&ndash;管理tab切换&ndash;&gt;-->
+<!--<script>-->
+<!--    //JavaScript代码区域-->
+<!--    layui.use('element', function () {-->
+<!--        var element = layui.element;-->
+<!--    });-->
+<!--</script>-->
+</body>
+</html>

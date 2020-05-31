@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>接口详情</title>
+    <link rel="stylesheet" href="../../layui/css/layui.css">
+    <style>
+        .colkey {
+            font-size: 15px;
+            font-weight: 600;
+            text-align: left;
+            width: 75px;
+            padding: 9px 0 9px 10px;
+            color: #666;
+        }
+
+        .col {
+            margin: 10px 0 10px 25px;
+        }
+
+        .table-zone {
+            width: 98%;
+            padding: 15px 0 10px 25px
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form class="layui-form" id="interface_form">
+        <!--基本信息-->
+        <div class="layui-collapse">
+            <div class="layui-colla-item">
+                <h1 class="layui-colla-title">基本信息</h1>
+                <div class="layui-colla-content layui-show">
+                    <div class="col" style="display: table;width: 96%">
+                        <div class="layui-form-item" style="display: table-cell;width: 25%">
+                            <label class="layui-form-label colkey">接口名称：</label>
+                            <div class="layui-input-block">
+                                <input class="layui-input" type="text" name="interfaceName" id="interfaceName"
+                                       style="width: 76%;border: none"
+                                       readonly="readonly">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item" style="display: table-cell;width: 25%">
+                            <label class="layui-form-label colkey">所属项目：</label>
+                            <div class="layui-input-block">
+                                <input class="layui-input" type="text" name="projectName" id="project"
+                                       style="width: 76%;border: none" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="layui-form-item" style="display: table-cell;width: 25%">
+                            <label class="layui-form-label colkey">所属模块：</label>
+                            <div class="layui-input-block">
+                                <input class="layui-input" type="text" name="moduleName" id="module"
+                                       style="width: 76%;border: none" readonly="readonly">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item" style="display: table-cell;width: 25%">
+                            <label class="layui-form-label colkey">用例编号：</label>
+                            <div class="layui-input-block">
+                                <input class="layui-input" type="text" name="id" id="id"
+                                       style="width:76%;border: none" readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" style="display: table;width: 96%">
+                        <div class="layui-form-item" style="display: table-cell;width: 25%">
+                            <label class="layui-form-label colkey">请求方式：</label>
+                            <div class="layui-input-block">
+                                <input class="layui-input" type="text" name="method" id="methodType"
+                                       style="width: 76%;border: none" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="layui-form-item" style="display: table-cell;width: 25%">
+                            <label class="layui-form-label colkey">参数格式：</label>
+                            <div class="layui-input-block">
+                                <input class="layui-input" type="text" name="paramType" id="paramType"
+                                       style="width: 76%;border: none" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="layui-form-item" style="display: table-cell;width: 50%">
+                            <label class="layui-form-label colkey">接口地址：</label>
+                            <div class="layui-input-block">
+                                <input class="layui-input" type="text" name="url" id="url"
+                                       style="width: 82%;border: none"
+                                       readonly="readonly">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col" style="display: table;width: 96%">
+                        <div class="layui-form-item" style="display: table-cell;width: 25%">
+                            <label class="layui-form-label colkey">用例类型：</label>
+                            <div class="layui-input-block">
+                                <input class="layui-input" type="text" name="caseType" id="caseType"
+                                       style="width: 76%;border: none" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="layui-form-item" style="display: table-cell;width: 25%">
+                            <label class="layui-form-label colkey">创&ensp;建&ensp;人：</label>
+                            <div class="layui-input-block">
+                                <input class="layui-input" type="text" name="creator" id="creator"
+                                       style="width: 76%;border: none"
+                                       readonly="readonly">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item" style="display: table-cell;width: 50%">
+                            <label class="layui-form-label colkey">接口路径：</label>
+                            <div class="layui-input-block">
+                                <input class="layui-input" type="text" name="path" id="path"
+                                       style="width: 76%;border: none"
+                                       readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" style="display: table;width: 96%">
+                        <div class="col" style="display: table-cell;width: 50%">
+                            <label class="layui-form-label colkey">用例说明：</label>
+                            <div class="layui-input-block">
+                                <input class="layui-input" type="text" name="description" id="description"
+                                       style="width: 76%;border: none"
+                                       readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="layui-form-item" style="display: table-cell;width: 50%">
+                            <label class="layui-form-label colkey">更新时间：</label>
+                            <div class="layui-input-block">
+                                <input class="layui-input" type="text" name="modifyTime" id="modifyTime"
+                                       style="width: 76%;border: none"
+                                       readonly="readonly">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item" style="display: none">
+                            <label class="layui-form-label colkey">项目id：</label>
+                            <div class="layui-input-block">
+                                <input class="layui-input" type="text" name="projectId">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--请求参数-->
+        <div class="layui-collapse">
+            <div class="layui-colla-item">
+                <h1 class="layui-colla-title">请求参数</h1>
+                <div class="layui-colla-content layui-show">
+                    <div class="table-zone">
+                        <h2>Headers:</h2>
+                        <!-- 表格区域 -->
+                        <table id="header_table" lay-filter="listBar"></table>
+                        <button class="layui-btn" id="addHeader"><i class="layui-icon">&#xe608;</i>添加行</button>
+                    </div>
+
+                    <div class="table-zone">
+                        <h2>Body:</h2>
+                        <!-- 表格区域 -->
+                        <table id="body_table" lay-filter="listBar"></table>
+                        <button class="layui-btn" id="addBody"><i class="layui-icon">&#xe608;</i>添加行</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--结果提取-->
+        <div class="layui-collapse">
+            <div class="layui-colla-item">
+                <h1 class="layui-colla-title">关联提取</h1>
+                <div class="layui-colla-content layui-show">
+                    <div class="table-zone">
+                        <table id="correlation_table" lay-filter="listBar"></table>
+                        <button class="layui-btn" id="addCorrelation"><i class="layui-icon">&#xe608;</i>添加行</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--结果断言-->
+        <div class="layui-collapse">
+            <div class="layui-colla-item">
+                <h1 class="layui-colla-title">结果断言</h1>
+                <div class="layui-colla-content layui-show table-zone">
+                    <div class="layui-tab layui-tab-brief" lay-filter="assertion">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">常规断言</li>
+                            <li>Beanshell断言</li>
+                        </ul>
+                        <div class="layui-tab-content">
+                            <div class="layui-tab-item layui-show">
+                                <table id="assertion_table" lay-filter="assertion"></table>
+                                <button class="layui-btn" id="addAssertion"><i class="layui-icon">&#xe608;</i>添加行
+                                </button>
+                            </div>
+                            <div class="layui-tab-item">
+                                <input type="checkbox" name="shellStatus" id="shellStatus" lay-skin="switch"
+                                       lay-text="启用|禁用">
+                                <textarea autoHeight="true" name="assertionShell" style="margin-top: 8px"
+                                          placeholder="请输入Beanshell断言内容" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--结果示例-->
+        <div class="layui-collapse" style="margin-bottom: 60px">
+            <div class="layui-colla-item">
+                <h1 class="layui-colla-title">结果示例</h1>
+                <div class="layui-colla-content layui-show">
+                    <div class="table-zone">
+                        <textarea autoHeight="true" name="resultDemo" id="resultDemo" placeholder="请输入内容"
+                                  class="layui-textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item" style="position:fixed;bottom:0px;left: 45.5%;width: 98%">
+            <div class="layui-btn-group">
+                <button class="layui-btn layui-btn-normal" lay-filter="updateInfo_submit" lay-submit="">保&emsp;存
+                </button>
+                <button class="layui-btn layui-btn-warm" lay-filter="cancel_button" lay-submit="">返&emsp;回</button>
+            </div>
+        </div>
+    </form>
+</div>
+<!--行工具按钮-->
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+</script>
+
+<script type="text/html" id="assertion_lineBar">
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+</script>
+
+<script src="../../layui/layui.js"></script>
+<script src="../../js/libs/jquery-2.1.1.min.js"></script>
+<script src="../../js/authority.js"></script>
+<script src="../../js/common.js"></script>
+<script src="caseList.js"></script>
+<script src="../../js/publicTool.js"></script>
+<script type="text/html" id="param_required">
+    {{#  if(d.required=='Y'){ }}
+    <input type="checkbox" name="param_required" lay-skin="switch" checked lay-text="是|否" value={{ d.required }}
+           lay-filter="param_required">
+    {{#  } else { }}
+    <input type="checkbox" name="param_required" lay-skin="switch" lay-text="是|否" value={{ d.required}}
+           lay-filter="param_required">
+    {{#  } }}
+</script>
+
+<script type="text/html" id="assertion_status">
+    {{#  if(d.status=='Y'){ }}
+    <input type="checkbox" name="status" lay-skin="switch" checked lay-text="启用|禁用" value={{ d.status }}
+           lay-filter="status">
+    {{#  } else { }}
+    <input type="checkbox" name="status" lay-skin="switch" lay-text="启用|禁用" value={{ d.status}}
+           lay-filter="status">
+    {{#  } }}
+</script>
+<script>
+    layui.extend({optimizeSelectOption: '../../layui/plugin/optimizeSelectOption/optimizeSelectOption'})
+        .use(['table', 'layer', 'form', 'laypage', 'laydate', 'optimizeSelectOption', 'element'], function () {
+            var table = layui.table,
+                element = layui.element,
+                form = layui.form;
+            var fn1 = function (field) {
+                return function (data) {
+                    var value = data[field];
+                    return [
+                        '<select name="assertRule" lay-filter="assertRule_select" lay-search="true" value="' + value + '">',
+                        '<option value="" >请选择或搜索</option>',
+                        '<option value="包含"' + (value === '包含' ? 'selected' : '') + '>包含</option>',
+                        '<option value="等于"' + (value === '等于' ? 'selected' : '') + '>等于</option>',
+                        '<option value="JSON"' + (value === 'JSON' ? 'selected' : '') + '>JSON</option>',
+                        '</select>'
+                    ].join('');
+                };
+            };
+            // 调用页面初始化
+            initInfo();
+
+            // 页面初始化
+            function initInfo() {
+                // var id = $("#id").val();
+                var id = getUrlParam("id");
+                $.ajax({
+                    type: 'get',
+                    url: "/interface/caseInfo",
+                    contentType: "application/x-www-form-urlencoded",
+                    data: {id: id},
+                    dataType: "json",
+                    success: function (result) {
+                        var formData = {};
+                        formData.jsonValue = result.data.caseInfo;
+                        formData.isDebug = false;
+
+                        var headers = result.data.header;
+                        var body = result.data.body;
+                        var correlation = result.data.correlation;
+                        var assertion = result.data.assertion;
+
+                        if (result.code === "0") {
+                            // 根据数据库状态渲染beanshell断言的状态
+                            var shellStatus = result.data.shellStatus;
+                            if (shellStatus === '1') {
+                                $("#shellStatus").attr('checked', 'checked');
+                            } else {
+                                $("#shellStatus").removeAttr('checked');
+                            }
+                            layui.form.render();
+                            // 渲染详情页form
+                            $("#interface_form").initForm(formData);
+                            // 渲染详情页header和body的table
+                            table.render({
+                                elem: '#header_table',
+                                id: 'header_table',
+                                title:
+                                    'header信息表',
+                                cols:
+                                    [[
+                                        {
+                                            field: 'name',
+                                            title: '参数名称',
+                                            width: '15%',
+                                            align: 'center',
+                                            edit: 'text'
+                                        }
+                                        , {
+                                            field: 'value',
+                                            title: '参数值',
+                                            width: '28%',
+                                            edit: 'text',
+                                            align: 'center'
+                                        }
+                                        , {
+                                            field: 'required',
+                                            title: '是否必须',
+                                            width: 150,
+                                            align: 'center',
+                                            templet: '#param_required'
+                                        }
+                                        , {field: 'comment', title: '说明', edit: 'text', align: 'center'}
+                                        , {
+                                            fixed: 'right',
+                                            title: '操作',
+                                            toolbar: '#barDemo',
+                                            width: 75,
+                                            align: 'center',
+                                        }
+                                    ]],
+                                data: headers
+                            });
+                            table.render({
+                                elem: '#body_table',
+                                id: 'body_table',
+                                title:
+                                    'body信息表',
+                                cols:
+                                    [[
+                                        {
+                                            field: 'name',
+                                            title: '参数名称',
+                                            width: '15%',
+                                            align: 'center',
+                                            edit: 'text'
+                                        }
+                                        , {
+                                            field: 'value',
+                                            title: '参数值',
+                                            width: '28%',
+                                            edit: 'text',
+                                            align: 'center'
+                                        }
+                                        , {
+                                            field: 'required',
+                                            title: '是否必须',
+                                            width: 150,
+                                            align: 'center',
+                                            templet: '#param_required'
+                                        }
+                                        , {field: 'comment', title: '说明', edit: 'text', align: 'center'}
+                                        , {
+                                            fixed: 'right',
+                                            title: '操作',
+                                            toolbar: '#barDemo',
+                                            width: 75,
+                                            align: 'center',
+                                        }
+                                    ]],
+                                data: body
+                            });
+                            table.render({
+                                elem: '#correlation_table',
+                                id: 'correlation_table',
+                                title:
+                                    '关联提取表',
+                                cols:
+                                    [[
+                                        {field: 'keyName', title: '变量名', width: '15%', align: 'center', edit: 'text'}
+                                        , {
+                                            field: 'jsonPath',
+                                            title: '路径表达式',
+                                            width: '28%',
+                                            edit: 'text',
+                                            align: 'center'
+                                        }
+                                        , {field: 'default', title: '缺省值', width: '18%', edit: 'text', align: 'center'}
+                                        , {field: 'description', title: '说明', edit: 'text', align: 'center'}
+                                        , {
+                                            fixed: 'right',
+                                            title: '操作',
+                                            toolbar: '#barDemo',
+                                            width: 75,
+                                            align: 'center',
+                                        }
+                                    ]],
+                                data: correlation
+                            });
+                            table.render({
+                                elem: '#assertion_table',
+                                id: 'assertion_table',
+                                size: 'lg',
+                                title:
+                                    '结果校验信息表',
+                                data: assertion,
+                                cols:
+                                    [[
+                                        {
+                                            field: 'assertRule',
+                                            title: '断言规则',
+                                            width: '12%',
+                                            align: 'center',
+                                            templet: fn1('assertRule')
+                                        }
+                                        , {
+                                            field: 'jsonPath',
+                                            title: '路径表达式',
+                                            width: '25%',
+                                            edit: 'text',
+                                            align: 'center'
+                                        }
+                                        , {
+                                            field: 'expectedValue',
+                                            title: '预期值',
+                                            width: '15%',
+                                            edit: 'text',
+                                            align: 'center'
+                                        }
+                                        , {
+                                            field: 'status',
+                                            title: '状态',
+                                            width: 130,
+                                            align: 'center',
+                                            templet: '#assertion_status'
+                                        }
+                                        , {field: 'description', title: '说明', edit: 'text', align: 'center'}
+                                        , {
+                                            fixed: 'right',
+                                            title: '操作',
+                                            toolbar: '#assertion_lineBar',
+                                            width: 75,
+                                            align: 'center',
+                                        }
+                                    ]]
+                            });
+                        } else {
+                            layer.alert(result.msg, {icon: 2}, function () {
+                            });
+                        }
+                    }
+                });
+            }
+
+            //监听行工具事件
+            table.on('tool(listBar)', function (obj) {
+                var layEvent = obj.event;
+
+                switch (layEvent) {
+                    case 'del':
+                        layer.confirm('确认删除该行？', function (index) {
+                            obj.del();
+                            layer.close(index);
+                        });
+                        break;
+                }
+            });
+
+            // 添加行事件
+            $("#addHeader").click(function () {
+                var dataBak = table.cache.header_table;
+                var data1 = {
+                    "name": "",
+                    "value": "",
+                    "required": "Y",
+                    "demo": "",
+                    "comment": ""
+                };
+                dataBak.push(data1);
+                table.reload('header_table', {
+                    data: dataBak
+                });
+                return false;
+            });
+            $("#addBody").click(function () {
+                var dataBak = table.cache.body_table;
+                var data1 = {
+                    "name": "",
+                    "value": "",
+                    "required": "Y",
+                    "demo": "",
+                    "comment": ""
+                };
+                dataBak.push(data1);
+                table.reload('body_table', {
+                    data: dataBak
+                });
+                return false;
+            });
+            $("#addCorrelation").click(function () {
+                var dataBak = table.cache.correlation_table;
+                var data1 = {
+                    "keyName": "access_token",
+                    "jsonPath": "$.data.accessToken",
+                    "default": "Cfo6mOc9rMQN30XjTMMbDbGwpsoLl9Ffy0FfTa",
+                    "description": "用户token提取",
+                };
+                dataBak.push(data1);
+                table.reload('correlation_table', {
+                    data: dataBak
+                });
+                return false;
+            });
+            $("#addAssertion").click(function () {
+                var dataBak = table.cache.assertion_table;
+                var data1 = {
+                    "assertRule": "包含",
+                    "expectedValue": "操作成功",
+                    "LAY_TABLE_INDEX": 0,
+                    "status": "Y",
+                    "description": "响应结果包含预期值即断言成功",
+                    "jsonPath": "做JSON校验时填此项"
+                };
+                dataBak.push(data1);
+                table.reload('assertion_table', {
+                    data: dataBak
+                });
+                return false;
+            });
+
+            //监听提交
+            form.on('submit(updateInfo_submit)', function (data) {
+                var submitData = data.field;
+
+                submitData.headerData = table.cache.header_table;
+                submitData.bodyData = table.cache.body_table;
+                submitData.correlation = table.cache.correlation_table;
+                submitData.assertion = table.cache.assertion_table;
+
+                // 提交前根据switch状态修改其值
+                if ($("#shellStatus").is(':checked')) {
+                    data.field.shellStatus = '1';
+                } else {
+                    data.field.shellStatus = '0';
+                }
+
+                $.ajax({
+                    type: "post",
+                    url: "/interface/updateCaseInfo",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(submitData),
+                    dataType: "json",
+                    success: function (result) {
+                        if (result.code === "0") {
+                            layer.msg(result.msg, {icon: 1, time: 1000});
+                        } else {
+                            layer.alert(result.msg, {icon: 2}, function () {
+                            });
+                        }
+                    }, error: function (e) {
+                        layer.alert(e.responseJSON.message, {
+                            icon: 2,
+                            time: 2000
+                        });
+                    }
+                });
+                return false;
+            });
+
+            //监听返回按钮点击事件
+            form.on('submit(cancel_button)', function () {
+                //当你在iframe页面关闭自身时
+                layer.confirm('未保存的数据将会丢失，确认关闭？', function () {
+                    var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                    parent.layer.close(index); //再执行关闭
+                    // location.href = "caseList.html";
+                });
+                return false;
+            });
+
+            // 监听断言事件
+            table.on('tool(assertion)', function (obj) {
+                var layEvent = obj.event;
+
+                switch (layEvent) {
+                    // 删除事件
+                    case 'del':
+                        layer.confirm('确认删除该行？', function (index) {
+                            obj.del();
+                            layer.close(index);
+                        });
+                        break;
+                }
+            });
+
+            // 监听断言规则下拉框选择事件修改表格缓存
+            form.on('select(assertRule_select)', function (data) {
+                var selectElem = $(data.elem);
+                var tdElem = selectElem.closest('td');
+                var trElem = tdElem.closest('tr');
+                var tableView = trElem.closest('.layui-table-view');
+                table.cache[tableView.attr('lay-id')][trElem.data('index')][tdElem.data('field')] = data.value;
+            });
+            // 监听头部事件
+            form.on('switch(param_required)', function (data) {
+                var status = this.checked ? 'Y' : 'N';
+                modifyTableCacheBySwitch(data, status);
+            });
+            // 监听文本框点击展示全文
+            $("#resultDemo").click(function () {
+                readyNumber();
+            })
+        });
+</script>
+</body>
+</html>
