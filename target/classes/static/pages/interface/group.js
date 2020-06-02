@@ -275,12 +275,12 @@ layui.use(['transfer', 'table', 'layer', 'form', 'util'], function () {
             dataType: "json",
             success: function (result) {
                 if (result.code === "0") {
-                    layer.close(index);
+                    layer.close(indexForm);
                     layer.msg(result.msg, {icon: 1, time: 1000});
                     tableReload('groupReload', '', 'application/x-www-form-urlencoded', '/interface/groupList', 'get');
                 } else {
                     layer.alert(result.msg, {icon: 2}, function () {
-                        layer.close(index);
+                        layer.close(indexForm);
                     });
                 }
             }

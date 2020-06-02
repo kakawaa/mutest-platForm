@@ -65,6 +65,7 @@ layui.use(['table', 'layer', 'form', 'laypage', 'laydate'], function () {
                 selectInit('/interface/getProject', $("#projectNameSearch"), '请选择项目');
                 break;
             case 'add':
+                selectInit('/interface/getProject', $("#projectNameAdd"), '请选择项目');
                 data = {};
                 data.action = 'addModule';
                 data.type = 'POST';
@@ -106,16 +107,22 @@ layui.use(['table', 'layer', 'form', 'laypage', 'laydate'], function () {
             data: JSON.stringify(data.field),
             dataType: "json",
             success: function (result) {
-                if (result.code == "0") {
-                    layer.close(index);
+                if (result.code === "0") {
+                    layer.close(indexForm);
                     layer.msg(result.msg, {icon: 1, time: 1000});
                     tableReload('moduleReload', '', 'application/x-www-form-urlencoded', '/interface/moduleList', 'get');
                     selectInit('/interface/getProject', $("#projectNameAdd"), '请选择项目');
                 } else {
-                    layer.alert(result.msg, {icon: 2}, function () {
-                        layer.close(index);
+                    layer.alert(result.msg, {
+                        icon: 2,
+                        time: 2000
                     });
                 }
+            }, error: function (e) {
+                layer.alert(e.responseJSON.message, {
+                    icon: 2,
+                    time: 2000
+                });
             }
         });
         return false;

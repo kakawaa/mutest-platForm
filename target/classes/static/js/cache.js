@@ -227,17 +227,17 @@ layui.use(['form', 'jquery', "layer"], function () {
                     } else {
                         $(".skinCustom").css("visibility", "inherit");
                     }
-                })
+                });
                 var skinStr, skinColor;
                 $(".topColor").blur(function () {
                     $(".layui-layout-admin .layui-header").css("background-color", $(this).val() + " !important");
-                })
+                });
                 $(".leftColor").blur(function () {
                     $(".layui-bg-black").css("background-color", $(this).val() + " !important");
-                })
+                });
                 $(".menuColor").blur(function () {
                     $(".hideMenu").css("background-color", $(this).val() + " !important");
-                })
+                });
 
                 form.on("submit(changeSkin)", function (data) {
                     if (data.field.skin != "自定义") {

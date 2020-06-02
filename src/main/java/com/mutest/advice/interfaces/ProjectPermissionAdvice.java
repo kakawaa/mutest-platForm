@@ -38,16 +38,12 @@ public class ProjectPermissionAdvice {
 
     @Before("projectPermissionPoint()")
     public void projectPermission(JoinPoint joinPoint) {
-        System.out.println("开始项目权限校验===========================================" + System.currentTimeMillis());
         SysUser user = UserUtil.getLoginUser();
         Long userId = user.getId();
 
         //获取请求参数
         Object[] objects = joinPoint.getArgs();
         Long projectId = ((JSONObject) objects[0]).getLong("projectId");
-        String creator = ((JSONObject) objects[0]).getString("creator");
-        System.out.println("projectId===================" + projectId);
-        System.out.println("creator===================" + creator);
 
         List<Long> projectIds = interfacePermissionDao.projectListByUserId(userId);
         // 没有项目权限直接抛出异常
