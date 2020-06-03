@@ -1,7 +1,8 @@
-layui.use(['table', 'layer', 'form', 'laypage', 'laydate'], function () {
+layui.use(['table', 'layer', 'form', 'laypage', 'laydate', 'element'], function () {
     var table = layui.table //表格
         , layer = layui.layer //弹层
-        , form = layui.form; //form表单
+        , form = layui.form //form表单
+        , element = layui.element;
     //执行实例
     table.render({
         elem: '#case_table'
@@ -141,7 +142,7 @@ layui.use(['table', 'layer', 'form', 'laypage', 'laydate'], function () {
                     contentType: "application/json; charset=utf-8",
                     data: JSON.stringify({"caseId": caseId}),
                     success: function (result) {
-                        if (result.code === 0) {
+                        if (result.code === "0") {
                             try {
                                 $("#showResponse").html(JSON.stringify(JSON.parse(result.data.caseResponse), null, 4));
                             } catch (e) {

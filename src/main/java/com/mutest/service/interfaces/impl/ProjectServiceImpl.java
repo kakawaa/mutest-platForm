@@ -65,15 +65,15 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public JsonResult addProject(JSONObject request) {
+    public JsonResult addProject(JSONObject projectInfo) {
         try {
-            String projectName = request.getString("projectName");
+            String projectName = projectInfo.getString("projectName");
             int count = projectDao.projectAddCount(projectName);
             if (count > 0)
                 return new JsonResult<>("400", "该项目已存在，请勿重复添加！");
             String creator = UserUtil.getLoginUser().getNickname();
-            request.put("creator", creator);
-            projectDao.addProject(request);
+            projectInfo.put("creator", creator);
+            projectDao.addProject(projectInfo);
             return new JsonResult<>("0", "操作成功！");
         } catch (Exception e) {
             log.error("修改项目失败：" + e.getMessage());

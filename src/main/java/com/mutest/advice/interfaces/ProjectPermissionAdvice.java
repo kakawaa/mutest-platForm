@@ -3,6 +3,7 @@ package com.mutest.advice.interfaces;
 import com.alibaba.fastjson.JSONObject;
 import com.mutest.advice.BusinessErrorException;
 import com.mutest.dao.base.InterfacePermissionDao;
+import com.mutest.dao.base.InterfaceProjectDao;
 import com.mutest.model.SysUser;
 import com.mutest.utils.UserUtil;
 import org.aspectj.lang.JoinPoint;
@@ -28,6 +29,8 @@ import java.util.List;
 public class ProjectPermissionAdvice {
     @Resource
     private InterfacePermissionDao interfacePermissionDao;
+    @Resource
+    private InterfaceProjectDao interfaceProjectDao;
 
     @Value("${interface.permission.groupPermissionRoleId}")
     String groupPermissionRoleIdStr;
@@ -45,6 +48,10 @@ public class ProjectPermissionAdvice {
         Object[] objects = joinPoint.getArgs();
         Long projectId = ((JSONObject) objects[0]).getLong("projectId");
 
+        if (projectId == null) {
+            String projectName = ((JSONObject) objects[0]).getString("projectName");
+            projectId = interfaceProjectDao.getProjectIdByName(projectName);
+        }
         List<Long> projectIds = interfacePermissionDao.projectListByUserId(userId);
         // 没有项目权限直接抛出异常
         if (!projectIds.contains(projectId)) {

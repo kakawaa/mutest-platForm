@@ -5,7 +5,6 @@ import com.mutest.annotation.interfaces.GroupPermissions;
 import com.mutest.annotation.interfaces.ProjectPermissions;
 import com.mutest.model.JsonResult;
 import com.mutest.service.interfaces.InterfaceService;
-import com.mutest.service.interfaces.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,8 +22,8 @@ import java.util.List;
 public class InterfaceController {
     @Autowired
     private InterfaceService interfaceService;
-    @Autowired
-    private PermissionService permissionService;
+//    @Autowired
+//    private PermissionService permissionService;
 
     @RequestMapping(value = "/interfaceList", method = RequestMethod.GET)
     public JsonResult getInterfaceList(@RequestParam("pageNum") int pageNum, @RequestParam("pageSize") int pageSize) {
@@ -55,7 +54,6 @@ public class InterfaceController {
     @ProjectPermissions
     @RequestMapping(value = "/addInterface", method = RequestMethod.POST)
     public JsonResult addInterface(@RequestBody JSONObject request) {
-        permissionService.interfaceCaseAddAuth(request.getString("projectName"));
         return interfaceService.addInterface(request);
     }
 

@@ -1,5 +1,6 @@
 initMenu();
 
+// 目前使用的菜单渲染方法
 function initMenu() {
     $.ajax({
         url: "/permissions/current",
@@ -69,7 +70,7 @@ function setChilds(child) {
                     if (item.css === "") {
                         a = $("<a><i class='layui-icon'>&#xe67a;</i><cite>" + item.name + "</cite></a>");
                     }else{
-                        a = $("<a><i aria-hidden='true' class='fa " + item.css + "'></i><cite>" + name + "</cite></a>");
+                        a = $("<a><i aria-hidden='true' class='fa " + item.css + "'></i><cite>" + item.name + "</cite></a>");
                     }
 
                     var href2 = item.href;

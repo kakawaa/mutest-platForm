@@ -31,12 +31,13 @@
     </select>
 
     <select id="searchModule" resultMap="ModuleResultMap">
-        SELECT *
-        FROM mutest.interface_module
-        WHERE
-        1=1
-        <if test="project != null and project != ''">and project = #{project}</if>
-        <if test="module != null and module != ''">and module = #{module}</if>
+        SELECT a.id,project_name,project_id,module_name,a.creator,a.description,a.create_time,a.modify_time
+        FROM
+        mutest.interface_module a
+        JOIN mutest.interface_project b ON a.project_id =b.id
+        <where>
+            <if test="projectName != null and projectName != ''">and project_name = #{projectName}</if>
+        </where>
     </select>
 
     <update id="updateModule" parameterType="com.mutest.model.interfaces.ModuleInfo">

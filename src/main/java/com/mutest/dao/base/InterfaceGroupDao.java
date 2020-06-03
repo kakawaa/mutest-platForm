@@ -25,6 +25,12 @@ public interface InterfaceGroupDao {
     @Insert("INSERT INTO mutest.interface_group(group_name,group_leader,description) VALUES (#{groupName},#{groupLeader},#{description})")
     int addGroup(JSONObject request);
 
+    @Select("SELECT COUNT(*) FROM mutest.interface_group WHERE group_name=#{groupName}")
+    int groupAddCount(@Param("groupName") String groupName);
+
+    @Select("SELECT COUNT(*) FROM mutest.interface_group WHERE id!=#{id} AND group_name=#{groupName}")
+    int groupUpdateCount(@Param("id") Long id, @Param("groupName") String groupName);
+
     @Select("SELECT * FROM mutest.sys_user WHERE status = 1")
     List<SysUser> getUserList();
 

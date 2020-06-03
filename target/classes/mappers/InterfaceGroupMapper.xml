@@ -25,9 +25,6 @@
         <if test="description != null and description !=''">description = #{description}</if>
         WHERE
         id = #{id}
-        on duplicate key update
-        group_id = values(group_id),
-        user_id = values(user_id)
     </update>
 
     <select id="searchGroup" resultMap="GroupResultMap">

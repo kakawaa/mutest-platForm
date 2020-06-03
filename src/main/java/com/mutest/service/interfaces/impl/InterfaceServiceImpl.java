@@ -10,6 +10,7 @@ import com.mutest.dao.base.InterfaceModuleDao;
 import com.mutest.model.JsonResult;
 import com.mutest.model.interfaces.InterfaceInfo;
 import com.mutest.service.interfaces.InterfaceService;
+import com.mutest.utils.UserUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -133,6 +134,7 @@ public class InterfaceServiceImpl implements InterfaceService {
                 return new JsonResult<>("400", "该接口已存在，请勿重复添加！");
             Long moduleId = interfaceModuleDao.getModuleIdByName(projectName, moduleName);
             interfaceInfo.put("moduleId", moduleId);
+            interfaceInfo.put("creator", UserUtil.getLoginUser().getNickname());
 
             interfaceListDao.addInterface(interfaceInfo);
             return new JsonResult<>("0", "操作成功！");

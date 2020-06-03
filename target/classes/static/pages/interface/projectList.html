@@ -38,10 +38,9 @@
             </div>
 
             <div class="layui-form-item">
-                <label class="layui-form-label">用例说明</label>
+                <label class="layui-form-label">项目说明</label>
                 <div class="layui-input-block">
-                    <input type="text" name="description" placeholder="请输入项目说明"
-                           autocomplete="off" class="layui-input" lay-verify="required">
+                    <textarea name="description" placeholder="请输入项目说明" class="layui-textarea"></textarea>
                 </div>
             </div>
 
@@ -140,7 +139,7 @@
                     data = {};
                     data.action = 'addProject';
                     data.type = 'post';
-                    open_form("#add_div", data, '添加项目', 'url', '610px', '290px');
+                    open_form("#add_div", data, '添加项目', 'url', '610px', '350px');
                     break;
             }
         });
@@ -155,7 +154,7 @@
                 case 'edit':
                     data.action = 'updateProject';
                     data.type = 'put';
-                    open_form("#add_div", data, '编辑项目', 'url', '610px', '290px');
+                    open_form("#add_div", data, '编辑项目', 'url', '610px', '350px');
                     break;
                 case 'detail':
                     openInfo('用例详情页', 'caseInfo.html', "#id", caseId);
@@ -207,7 +206,7 @@
                 success: function (result) {
                     if (result.code === "0") {
                         tableReload('projectReload', '', 'application/x-www-form-urlencoded', '/interface/projectList', 'get');
-                        layer.close(index);
+                        layer.close(indexForm);
                         layer.msg(result.msg, {icon: 1, time: 1000});
                     } else {
                         layer.alert(result.msg, {

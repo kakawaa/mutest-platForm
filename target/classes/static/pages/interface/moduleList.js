@@ -70,7 +70,7 @@ layui.use(['table', 'layer', 'form', 'laypage', 'laydate'], function () {
                 data.action = 'addModule';
                 data.type = 'POST';
 
-                open_form("#add_div", data, '添加模块', 'url', '680px', '300px');
+                open_form("#add_div", data, '添加模块', 'url', '680px', '450px');
                 break;
         }
     });
@@ -79,15 +79,15 @@ layui.use(['table', 'layer', 'form', 'laypage', 'laydate'], function () {
     table.on('tool(moduleBar)', function (obj) {
         var data = obj.data;
         var layEvent = obj.event;
-        var moduleId = data.id;
+        console.log(data);
 
         switch (layEvent) {
             case 'edit':
                 selectInit('/interface/getProject', $("#projectNameAdd"), '请选择项目');
-                $("#projectAdd").empty().append(new Option(data.project));
+                $("#projectNameAdd").empty().append(new Option(data.projectName));
                 data.action = 'updateModule';
                 data.type = 'put';
-                open_form("#add_div", data, '编辑模块信息', 'url', '680px', '300px');
+                open_form("#add_div", data, '编辑模块信息', 'url', '680px', '450px');
                 break;
             case 'delete':
 

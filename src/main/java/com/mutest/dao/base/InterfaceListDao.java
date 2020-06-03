@@ -58,10 +58,10 @@ public interface InterfaceListDao {
     /**
      * 新增接口
      *
-     * @param request 前端请求
+     * @param interfaceInfo 前端请求
      */
-    @Insert("INSERT INTO mutest.interface_list(module_id,interface_name,path,method,param_type,description) VALUES(#{moduleId},#{interfaceName},#{path},#{method},#{paramType},#{description})")
-    void addInterface(JSONObject request);
+    @Insert("INSERT INTO mutest.interface_list(module_id,interface_name,path,method,param_type,creator,description) VALUES(#{moduleId},#{interfaceName},#{path},#{method},#{paramType},#{creator},#{description})")
+    void addInterface(JSONObject interfaceInfo);
 
     int interfaceAddCount(JSONObject request);
 

@@ -1,7 +1,0 @@
-2020-06-02 20:30:09,899 [http-nio-8086-exec-7] ERROR c.m.s.i.impl.ModuleServiceImpl -[ModuleServiceImpl.java:86]- 新增模块失败：
-### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'platform' in 'field list'
-### The error may involve com.mutest.dao.base.InterfaceModuleDao.addModule-Inline
-### The error occurred while setting parameters
-### SQL: INSERT INTO mutest.interface_module(platform,project,module,host,description) VALUES(?,?,?,?,?)
-### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'platform' in 'field list'
-; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'platform' in 'field list'

@@ -40,8 +40,7 @@
             <div class="layui-form-item" style="width: 100%">
                 <label class="layui-form-label">说&emsp;&emsp;明</label>
                 <div class="layui-input-block">
-                    <input type="text" name="description" placeholder="请输入模块描述"
-                           autocomplete="off" class="layui-input" lay-verify="required">
+                    <textarea name="description" placeholder="请输入模块描述" class="layui-textarea"></textarea>
                 </div>
             </div>
 
@@ -62,48 +61,6 @@
 <script src="moduleList.js"></script>
 <script src="../../js/publicTool.js"></script>
 
-<!--&lt;!&ndash;头工具按钮&ndash;&gt;-->
-<!--<script type="text/html" id="module_headerBar">-->
-<!--    &lt;!&ndash;搜索框&ndash;&gt;-->
-<!--    <div style="display: table;width: 100%">-->
-<!--        <div style="display: table-cell;width: 800px">-->
-<!--            <form class="layui-form" id="search_form">-->
-<!--                &lt;!&ndash;注意：layui-form-item必须，否则提交表单无该项数据&ndash;&gt;-->
-<!--                &lt;!&ndash;搜索条件2：项目名称&ndash;&gt;-->
-<!--                <div class="layui-input-inline" style="width: 200px">-->
-<!--                    <label>项&ensp;目&ensp;</label>-->
-<!--                    <div class="layui-input-inline" style="width: 140px">-->
-<!--                        <select id="projectSearch" name="project" lay-filter="projectSearch">-->
-<!--                            <option value=""></option>-->
-<!--                        </select>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                <button class="layui-btn layui-btn-sm layui-btn-danger" lay-submit lay-filter="search"><i-->
-<!--                        class="layui-icon">&#xe615;</i>搜&emsp;索-->
-<!--                </button>-->
-<!--                <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">-->
-<!--                    <i class="layui-icon">&#xe631;</i>重&emsp;置-->
-<!--                </button>-->
-<!--            </form>-->
-<!--        </div>-->
-<!--        <div style="display: table-cell">-->
-<!--            &lt;!&ndash;新增&ndash;&gt;-->
-<!--            <div style="display: table-cell">-->
-<!--                <button class="layui-btn layui-btn-sm" lay-event="add">-->
-<!--                    <i class="layui-icon">&#xe608;</i> 新&emsp;增-->
-<!--                </button>-->
-<!--            </div>-->
-<!--            &lt;!&ndash;刷新&ndash;&gt;-->
-<!--            <div style="display: table-cell;">-->
-<!--                <button class="layui-btn layui-btn-normal layui-btn-sm" lay-event="refresh" style=" margin-left: 15px">-->
-<!--                    <i class="layui-icon">&#xe669;</i> 刷&emsp;新-->
-<!--                </button>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</script>-->
-
 <!--头部工具按钮-->
 <script type="text/html" id="module_headerBar">
     <!--搜索框-->
@@ -118,15 +75,7 @@
                         </select>
                     </div>
                 </div>
-<!--                &lt;!&ndash;注意：layui-form-item必须，否则提交表单无该项数据&ndash;&gt;-->
-<!--                <div class="layui-form-item">-->
-<!--                    <label class="layui-form-label">项目名称</label>-->
-<!--                    <div class="layui-input-block">-->
-<!--                        <select id="projectNameSearch" name="projectName">-->
-<!--                            <option value=""></option>-->
-<!--                        </select>-->
-<!--                    </div>-->
-<!--                </div>-->
+
                 <div style="display: table-cell">
                     <button class="layui-btn layui-btn-sm layui-btn-danger" lay-submit lay-filter="search"
                             style="margin-left: 15px"><i

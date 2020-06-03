@@ -2,7 +2,6 @@ package com.mutest.controller.interfaces;
 
 import com.alibaba.fastjson.JSONObject;
 import com.mutest.model.JsonResult;
-import com.mutest.service.interfaces.PermissionService;
 import com.mutest.service.interfaces.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +18,6 @@ import org.springframework.web.bind.annotation.*;
 public class ProjectController {
     @Autowired
     private ProjectService projectService;
-    @Autowired
-    private PermissionService permissionService;
 
     @RequestMapping(value = "/projectList", method = RequestMethod.GET)
     public JsonResult getCaseList(@RequestParam("pageNum") int pageNum, @RequestParam("pageSize") int pageSize) {
@@ -28,12 +25,12 @@ public class ProjectController {
     }
 
     @RequestMapping(value = "/updateProject", method = RequestMethod.PUT)
-    public JsonResult updateInterface(@RequestBody JSONObject request) {
-        return projectService.updateProject(request);
+    public JsonResult updateInterface(@RequestBody JSONObject projectInfo) {
+        return projectService.updateProject(projectInfo);
     }
 
     @RequestMapping(value = "/addProject", method = RequestMethod.POST)
-    public JsonResult addInterface(@RequestBody JSONObject request) {
-        return projectService.addProject(request);
+    public JsonResult addInterface(@RequestBody JSONObject projectInfo) {
+        return projectService.addProject(projectInfo);
     }
 }

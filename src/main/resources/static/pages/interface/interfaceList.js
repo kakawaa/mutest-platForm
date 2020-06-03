@@ -25,11 +25,11 @@ layui.use(['table', 'layer', 'form', 'laypage', 'laydate'], function () {
         , cols:
             [[{field: 'number', title: '序号', width: 50, align: 'center', type: 'numbers'}
                 , {field: 'id', title: '编号', width: '5%', align: 'center', hide: true}
-                , {field: 'projectName', title: '项目', width: '8%', align: 'center'}
-                , {field: 'moduleName', title: '模块', width: '8%', align: 'center'}
-                , {field: 'interfaceName', title: '接口名称', width: '9.5%', align: 'center'}
-                , {field: 'url', title: 'IP地址', width: '15.5%', align: 'center', hide: true}
-                , {field: 'path', title: '路径', width: '16%', align: 'center'}
+                , {field: 'projectName', title: '项目', width: '7%', align: 'center'}
+                , {field: 'moduleName', title: '模块', width: '7%', align: 'center'}
+                , {field: 'interfaceName', title: '接口名称', width: '9%', align: 'center'}
+                , {field: 'url', title: 'IP地址', width: '15%', align: 'center', hide: true}
+                , {field: 'path', title: '路径', width: '22%', align: 'center'}
                 , {field: 'method', title: '方法', width: '7%', align: 'center'}
                 , {field: 'paramType', title: '参数', width: '6.6%', align: 'center'}
                 , {field: 'creator', title: '创建者', width: '7%', align: 'center'}
@@ -74,7 +74,7 @@ layui.use(['table', 'layer', 'form', 'laypage', 'laydate'], function () {
                 data.type = 'POST';
 
                 selectInit('/interface/getProject', $("#projectNameAdd"), '请选择项目');
-                open_form("#add_div", data, '添加接口', 'url', '680px', '450px');
+                open_form("#add_div", data, '添加接口', 'url', '680px', '460px');
                 break;
         }
     });
@@ -92,7 +92,7 @@ layui.use(['table', 'layer', 'form', 'laypage', 'laydate'], function () {
 
                 data.action = 'updateInterface';
                 data.type = 'put';
-                open_form("#add_div", data, '编辑接口信息', 'url', '680px', '450px');
+                open_form("#add_div", data, '编辑接口信息', 'url', '680px', '460px');
                 break;
             case 'delete':
 

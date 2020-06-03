@@ -279,8 +279,9 @@ layui.use(['transfer', 'table', 'layer', 'form', 'util'], function () {
                     layer.msg(result.msg, {icon: 1, time: 1000});
                     tableReload('groupReload', '', 'application/x-www-form-urlencoded', '/interface/groupList', 'get');
                 } else {
-                    layer.alert(result.msg, {icon: 2}, function () {
-                        layer.close(indexForm);
+                    layer.alert(result.msg, {
+                        icon: 2,
+                        time: 2000
                     });
                 }
             }

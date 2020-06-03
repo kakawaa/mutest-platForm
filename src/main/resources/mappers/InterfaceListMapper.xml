@@ -90,6 +90,7 @@
         id = #{id}
     </update>
 
+    <!--    更新判重要排除自身-->
     <select id="interfaceUpdateCount" resultType="java.lang.Integer">
         SELECT COUNT(*)
         FROM

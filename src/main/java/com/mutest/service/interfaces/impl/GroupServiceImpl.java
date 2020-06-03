@@ -44,9 +44,16 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public JsonResult updateGroup(JSONObject request) {
+    public JsonResult updateGroup(JSONObject groupInfo) {
         try {
-            interfaceGroupDao.updateGroup(request);
+            Long id = groupInfo.getLong("id");
+            String groupName = groupInfo.getString("groupName");
+
+            int count = interfaceGroupDao.groupUpdateCount(id, groupName);
+            if (count > 0) {
+                return new JsonResult<>("400", "该组已存在，请勿重复添加！");
+            }
+            interfaceGroupDao.updateGroup(groupInfo);
             return new JsonResult<>("0", "修改成功！");
         } catch (Exception e) {
             log.error("修改分组失败：" + e.getMessage());
@@ -55,9 +62,15 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public JsonResult addGroup(JSONObject request) {
+    public JsonResult addGroup(JSONObject groupInfo) {
         try {
-            interfaceGroupDao.addGroup(request);
+            String groupName = groupInfo.getString("groupName");
+
+            int count = interfaceGroupDao.groupAddCount(groupName);
+            if (count > 0) {
+                return new JsonResult<>("400", "该组已存在，请勿重复添加！");
+            }
+            interfaceGroupDao.addGroup(groupInfo);
             return new JsonResult<>("0", "添加成功！");
         } catch (Exception e) {
             log.error("添加分组失败：" + e.getMessage());

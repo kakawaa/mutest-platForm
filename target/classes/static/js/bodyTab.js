@@ -78,7 +78,7 @@ layui.define(["element", "jquery"], function (exports) {
             }
             ulHtml += '</li>';
         }
-        console.log(ulHtml);
+        // console.log(ulHtml);
         return ulHtml;
     };
 
