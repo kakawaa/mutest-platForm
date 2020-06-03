@@ -3,7 +3,8 @@
 
 在本地部署项目的步骤如下：
 
-1、在你自己的mysql中创建mutest库，执行mutest.sql（文件在resource目录下），修改yml配置文件，将localhost替换为你自己的mysql服务器地址
+1、在你自己的mysql中创建mutest库（注意库命必须是 mutest，字符集：utf8 -- UTF-8 Unicode，排序规则：utf8_general_ci），执行mutest.sql（文件在resource目录下），修改yml配置文件，将localhost替换为你自己的mysql服务器地址
+
 
 2、部署你自己的redis服务，并将服务器IP地址替换yml文件中的redis 的host（原配置为192.128.102.49），端口号视情况，一般默认端口都是6379
 
