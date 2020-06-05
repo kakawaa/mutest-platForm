@@ -3,11 +3,16 @@ layui.use(['table', 'layer', 'form', 'laypage', 'laydate'], function () {
     var table = layui.table
         , layer = layui.layer
         , form = layui.form;
+
+    var projectId = getUrlParam("projectId");
+    if (projectId === undefined) {
+        projectId = '';
+    }
     //执行实例
     table.render({
         elem: '#testSet_table',
         id: 'testSetReload'
-        , url: '/interface/testSetList'
+        , url: '/interface/testSetList?projectId=' + projectId
         , request: {
             pageName: 'pageNum',
             limitName: 'pageSize'
@@ -25,7 +30,7 @@ layui.use(['table', 'layer', 'form', 'laypage', 'laydate'], function () {
                 , {field: 'caseIdQueue', title: '用例队列', width: '20%', align: 'center'}
                 , {field: 'caseNameQueue', title: '队列描述', width: '28%', align: 'center'}
                 , {field: 'creator', title: '创建者', width: '8%', align: 'center'}
-                , {field: 'description', title: '用例说明', align: 'center'}
+                , {field: 'description', title: '集合说明', align: 'center'}
                 , {
                     field: 'createTime',
                     title: '创建时间',

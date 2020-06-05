@@ -5,6 +5,7 @@ import com.mutest.annotation.interfaces.GroupPermissions;
 import com.mutest.annotation.interfaces.ProjectPermissions;
 import com.mutest.model.JsonResult;
 import com.mutest.service.interfaces.CaseService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,8 +25,8 @@ public class CaseController {
     private CaseService caseService;
 
     @RequestMapping(value = "/caseList", method = RequestMethod.GET)
-    public JsonResult getCaseList(@RequestParam("pageNum") int pageNum, @RequestParam("pageSize") int pageSize) {
-        return caseService.getCaseList(pageNum, pageSize);
+    public JsonResult getCaseList(@RequestParam("pageNum") int pageNum, @RequestParam("pageSize") int pageSize, @Param("projectId") Long projectId, @Param("interfaceId") Long interfaceId) {
+        return caseService.getCaseList(pageNum, pageSize, projectId, interfaceId);
     }
 
     /**

@@ -37,6 +37,9 @@
 			mutest.interface_project c
 			ON
 			b.project_id = c.id
+		<where>
+            <if test="projectId != null and projectId != ''">project_id = #{projectId}</if>
+        </where>
         ORDER BY project_id,module_id
     </select>
 

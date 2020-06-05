@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 public interface CaseService {
-    JsonResult getCaseList(int pageNum, int pageSize);
+    JsonResult getCaseList(int pageNum, int pageSize, Long projectId, Long interfaceId);
 
     JsonResult getCaseInfoById(Long id);
 

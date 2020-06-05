@@ -26,8 +26,8 @@ public class InterfaceController {
 //    private PermissionService permissionService;
 
     @RequestMapping(value = "/interfaceList", method = RequestMethod.GET)
-    public JsonResult getInterfaceList(@RequestParam("pageNum") int pageNum, @RequestParam("pageSize") int pageSize) {
-        return interfaceService.getInterfaceList(pageNum, pageSize);
+    public JsonResult getInterfaceList(@RequestParam("pageNum") int pageNum, @RequestParam("pageSize") int pageSize, @RequestParam("projectId") Long projectId) {
+        return interfaceService.getInterfaceList(pageNum, pageSize, projectId);
     }
 
     @RequestMapping(value = "/searchInterface", method = RequestMethod.POST)

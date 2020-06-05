@@ -4,13 +4,17 @@ layui.use(['table', 'layer', 'form', 'laypage', 'laydate'], function () {
         , layer = layui.layer //弹层
         , form = layui.form;
 
+    var projectId = getUrlParam("projectId");
+    if (projectId === undefined) {
+        projectId = '';
+    }
     //执行实例
     table.render({
         elem: '#interface_table'
         , id: 'interfaceReload'
         // , skin: 'line' //行边框风格
         , even: true //开启隔行背景
-        , url: '/interface/interfaceList'
+        , url: '/interface/interfaceList?projectId=' + projectId
         , request: {
             pageName: 'pageNum',
             limitName: 'pageSize'
@@ -51,7 +55,7 @@ layui.use(['table', 'layer', 'form', 'laypage', 'laydate'], function () {
                     fixed: 'right',
                     title: '操作',
                     toolbar: '#interface_lineBar',
-                    width: 115,
+                    width: 175,
                     align: 'center'
                 }
             ]]
@@ -83,6 +87,8 @@ layui.use(['table', 'layer', 'form', 'laypage', 'laydate'], function () {
     table.on('tool(interfaceBar)', function (obj) {
         var data = obj.data;
         var layEvent = obj.event;
+        var interfaceId = data.id;
+        var interfaceName = data.interfaceName;
 
         switch (layEvent) {
             case 'edit':
@@ -93,6 +99,9 @@ layui.use(['table', 'layer', 'form', 'laypage', 'laydate'], function () {
                 data.action = 'updateInterface';
                 data.type = 'put';
                 open_form("#add_div", data, '编辑接口信息', 'url', '680px', '460px');
+                break;
+            case 'cases':
+                openInfo(interfaceName + '接口用例列表', 'caseList.html?interfaceId=' + interfaceId);
                 break;
             case 'delete':
 

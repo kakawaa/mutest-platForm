@@ -33,4 +33,14 @@ public class ProjectController {
     public JsonResult addInterface(@RequestBody JSONObject projectInfo) {
         return projectService.addProject(projectInfo);
     }
+
+    @RequestMapping(value = "/projectStructure", method = RequestMethod.GET)
+    public JsonResult projectStructure(@RequestParam("projectName") String projectName) {
+        return projectService.projectStructure(projectName);
+    }
+
+    @RequestMapping(value = "/projectSync", method = RequestMethod.GET)
+    public JsonResult projectSync() {
+        return projectService.projectSync();
+    }
 }

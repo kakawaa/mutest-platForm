@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 public interface InterfaceService {
-    JsonResult getInterfaceList(int pageNum, int pageSize);
+    JsonResult getInterfaceList(int pageNum, int pageSize,Long projectId);
 
     List<String> getProject();
 

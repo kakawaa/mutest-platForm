@@ -3,13 +3,21 @@ layui.use(['table', 'layer', 'form', 'laypage', 'laydate', 'element'], function 
         , layer = layui.layer //弹层
         , form = layui.form //form表单
         , element = layui.element;
+    var projectId = getUrlParam("projectId");
+    var interfaceId = getUrlParam("interfaceId");
+    if (projectId === undefined) {
+        projectId = '';
+    }
+    if (interfaceId === undefined) {
+        interfaceId = '';
+    }
     //执行实例
     table.render({
         elem: '#case_table'
         , id: 'caseReload'
         , skin: 'line' //行边框风格
         , even: true //开启隔行背景
-        , url: '/interface/caseList'
+        , url: '/interface/caseList?projectId=' + projectId + '&interfaceId=' + interfaceId
         , request: {
             pageName: 'pageNum',
             limitName: 'pageSize'

@@ -13,7 +13,7 @@ public interface InterfaceCaseDao {
      *
      * @return
      */
-    List<CaseInfo> getCaseList();
+    List<CaseInfo> getCaseList(@Param("projectId") Long projectId, @Param("interfaceId") Long interfaceId);
 
     /**
      * @param id 用例id
@@ -87,7 +87,7 @@ public interface InterfaceCaseDao {
     /**
      * 根据接口信息和创建者信息获取用例特征
      *
-     * @param request  查询信息：projectName moduleName interfaceName
+     * @param request 查询信息：projectName moduleName interfaceName
      * @return
      */
     List<CaseInfo> getCaseFeature(JSONObject request);

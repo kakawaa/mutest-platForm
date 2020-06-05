@@ -16,7 +16,7 @@ public interface InterfaceListDao {
      *
      * @return
      */
-    List<InterfaceInfo> getInterfaceList();
+    List<InterfaceInfo> getInterfaceList(@Param("projectId") Long projectId);
 
     Long getInterfaceIdByNames(@Param("projectName") String projectName, @Param("moduleName") String moduleName, @Param("interfaceName") String interfaceName);
 

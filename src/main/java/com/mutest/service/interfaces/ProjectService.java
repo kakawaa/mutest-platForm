@@ -11,4 +11,8 @@ public interface ProjectService {
     JsonResult updateProject(JSONObject request);
 
     JsonResult addProject(JSONObject request);
+
+    JsonResult projectStructure(String projectName);
+
+    JsonResult projectSync();
 }

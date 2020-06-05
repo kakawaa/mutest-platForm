@@ -34,10 +34,10 @@ public class InterfaceServiceImpl implements InterfaceService {
     private InterfaceModuleDao interfaceModuleDao;
 
     @Override
-    public JsonResult getInterfaceList(int pageNum, int pageSize) {
+    public JsonResult getInterfaceList(int pageNum, int pageSize,Long projectId) {
         try {
             PageHelper.startPage(pageNum, pageSize);
-            PageInfo<InterfaceInfo> pageInfo = new PageInfo<>(interfaceListDao.getInterfaceList());
+            PageInfo<InterfaceInfo> pageInfo = new PageInfo<>(interfaceListDao.getInterfaceList(projectId));
             return new JsonResult<>(pageInfo.getList(), "操作成功！", pageInfo.getTotal());
         } catch (Exception e) {
             log.error("获取接口列表失败：" + e.getMessage());

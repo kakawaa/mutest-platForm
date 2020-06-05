@@ -75,7 +75,7 @@
     </select>
 
     <select id="getTestSetResultList" resultMap="TestSetResultMap">
-        SELECT project_name,test_set_id,execute_id,a.id,case_count,case_name_queue,failed_count,failed_list,executor,a.create_time
+        SELECT project_name,test_set_id,execute_id,a.id,a.case_count,case_name_queue,failed_count,failed_list,executor,a.create_time
         FROM mutest.interface_set_result a
         JOIN mutest.interface_test_set b ON a.test_set_id = b.id
         JOIN mutest.interface_project c ON b.project_id=c.id

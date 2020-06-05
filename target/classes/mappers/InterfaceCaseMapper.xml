@@ -22,23 +22,27 @@
 
     <select id="getCaseList" resultMap="CaseResultMap">
         SELECT
-            a.id,
-            project_id,
-			module_id,
-            interface_id,
-			project_name,
-            module_name,
-            interface_name,
-            a.creator,
-            case_type,
-            delay,
-            a.description,
-            a.create_time,
-            a.modify_time
+        a.id,
+        project_id,
+        module_id,
+        interface_id,
+        project_name,
+        module_name,
+        interface_name,
+        a.creator,
+        case_type,
+        delay,
+        a.description,
+        a.create_time,
+        a.modify_time
         FROM mutest.interface_case a
-            JOIN mutest.interface_list b ON a.interface_id = b.id
-            JOIN mutest.interface_module c ON b.module_id = c.id
-			JOIN mutest.interface_project d ON c.project_id = d.id
+        JOIN mutest.interface_list b ON a.interface_id = b.id
+        JOIN mutest.interface_module c ON b.module_id = c.id
+        JOIN mutest.interface_project d ON c.project_id = d.id
+        <where>
+            <if test="projectId != null and projectId != ''">project_id = #{projectId}</if>
+            <if test="interfaceId != null and interfaceId != ''">and interface_id = #{interfaceId}</if>
+        </where>
         ORDER by project_id, module_id, interface_id
     </select>
 
@@ -135,14 +139,12 @@
         JOIN mutest.interface_list b ON a.interface_id = b.id
         JOIN mutest.interface_module c ON b.module_id = c.id
         JOIN mutest.interface_project d ON c.project_id = d.id
-        WHERE
-        1=1
-        <if test="projectName != null and projectName != ''">and project_name = #{projectName}</if>
-        <if test="moduleName != null and moduleName != ''">and module_name = #{moduleName}</if>
-        <if test="interfaceName != null and interfaceName != ''">and interface_name like concat('%', #{interfaceName},
-            '%')
-        </if>
-        <if test="creator != null and creator != ''">and a.creator = #{creator}</if>
+        <where>
+            <if test="projectName != null and projectName != ''">project_name = #{projectName}</if>
+            <if test="moduleName != null and moduleName != ''">and module_name = #{moduleName}</if>
+            <if test="interfaceName != null and interfaceName != ''">and interface_name like concat('%',#{interfaceName},'%')</if>
+            <if test="creator != null and creator != ''">and a.creator = #{creator}</if>
+        </where>
     </select>
 
     <select id="getStandardCaseByInterfaceId" resultMap="CaseResultMap">

@@ -15,6 +15,8 @@ public class ProjectInfo {
     private String projectName;
     private String url;
     private String creator;
+    private int interfaceCount;
+    private int caseCount;
     private String description;
     private String createTime;
     private String modifyTime;

@@ -4,6 +4,8 @@
 <mapper namespace="com.mutest.dao.base.InterfaceProjectDao">
     <resultMap id="ProjectResultMap" type="com.mutest.model.interfaces.ProjectInfo">
         <result column="project_name" property="projectName"/>
+        <result column="interface_count" property="interfaceCount"/>
+        <result column="case_count" property="caseCount"/>
         <result column="create_time" property="createTime"/>
         <result column="modify_time" property="modifyTime"/>
     </resultMap>
@@ -11,6 +13,33 @@
     <select id="getProjectList" resultMap="ProjectResultMap">
         SELECT * FROM mutest.interface_project
     </select>
+
+    <select id="projectInterfaceCount" resultMap="ProjectResultMap">
+        SELECT project_name,COUNT(interface_name) interface_count
+        FROM mutest.interface_list a
+        JOIN mutest.interface_module b ON a.module_id = b.id
+        RIGHT JOIN mutest.interface_project c ON b.project_id = c.id
+        GROUP BY c.id
+    </select>
+
+    <select id="projectCaseCount" resultMap="ProjectResultMap">
+        SELECT project_name,COUNT(a.id) case_count FROM mutest.interface_case a
+        JOIN mutest.interface_list b ON a.interface_id = b.id
+        JOIN mutest.interface_module c ON b.module_id = c.id
+        RIGHT JOIN mutest.interface_project d ON c.project_id = d.id
+        GROUP BY d.id
+    </select>
+
+    <update id="updateProjectCountBatch" parameterType="com.mutest.model.interfaces.ProjectInfo">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            UPDATE mutest.interface_project
+            <set>
+                interface_count=#{item.interfaceCount},
+                case_count=#{item.caseCount}
+            </set>
+            where project_name = #{item.projectName}
+        </foreach>
+    </update>
 
     <update id="updateProject" parameterType="com.mutest.model.interfaces.ProjectInfo">
         UPDATE

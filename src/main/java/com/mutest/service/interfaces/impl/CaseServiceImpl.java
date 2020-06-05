@@ -49,10 +49,10 @@ public class CaseServiceImpl implements CaseService {
      * @return
      */
     @Override
-    public JsonResult getCaseList(int pageNum, int pageSize) {
+    public JsonResult getCaseList(int pageNum, int pageSize, Long projectId, Long interfaceId) {
         try {
             PageHelper.startPage(pageNum, pageSize);
-            PageInfo<CaseInfo> pageInfo = new PageInfo(interfaceCaseDao.getCaseList());
+            PageInfo<CaseInfo> pageInfo = new PageInfo(interfaceCaseDao.getCaseList(projectId, interfaceId));
             return new JsonResult<>(pageInfo.getList(), "操作成功！", pageInfo.getTotal());
         } catch (Exception e) {
             log.error("获取用例列表失败：" + e.getMessage());
