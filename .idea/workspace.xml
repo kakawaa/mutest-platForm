@@ -1,53 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90c5f663-5599-45a9-befe-b1b72dde9d1b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/pages/interface/projectList.js" afterDir="false" />
+    <list default="true" id="90c5f663-5599-45a9-befe-b1b72dde9d1b" name="Default Changelist" comment="优化和修复bug">
+      <change afterPath="$PROJECT_DIR$/logs/mutest.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/mutest.log.2020-06-03.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/mutest.log.error" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/mutest.log.error.2020-06-03.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/mutest.log.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mutest/controller/interfaces/CaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mutest/controller/interfaces/CaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mutest/controller/interfaces/InterfaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mutest/controller/interfaces/InterfaceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mutest/controller/interfaces/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mutest/controller/interfaces/ProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mutest/dao/base/InterfaceCaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mutest/dao/base/InterfaceCaseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mutest/dao/base/InterfaceListDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mutest/dao/base/InterfaceListDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mutest/dao/base/InterfaceProjectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mutest/dao/base/InterfaceProjectDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mutest/model/interfaces/ProjectInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mutest/model/interfaces/ProjectInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mutest/service/interfaces/CaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mutest/service/interfaces/CaseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mutest/service/interfaces/InterfaceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mutest/service/interfaces/InterfaceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mutest/service/interfaces/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mutest/service/interfaces/ProjectService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mutest/service/interfaces/impl/CaseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mutest/service/interfaces/impl/CaseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mutest/service/interfaces/impl/InterfaceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mutest/service/interfaces/impl/InterfaceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mutest/service/interfaces/impl/ProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mutest/service/interfaces/impl/ProjectServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/InterfaceCaseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/InterfaceCaseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/InterfaceListMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/InterfaceListMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/InterfaceProjectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/InterfaceProjectMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/pages/interface/caseList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/pages/interface/caseList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/pages/interface/interfaceList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/pages/interface/interfaceList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/pages/interface/interfaceList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/pages/interface/interfaceList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/pages/interface/projectList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/pages/interface/projectList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/pages/interface/testSetList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/pages/interface/testSetList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/mutest/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/mutest/Demo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mutest/controller/interfaces/CaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mutest/controller/interfaces/CaseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mutest/controller/interfaces/InterfaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mutest/controller/interfaces/InterfaceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mutest/controller/interfaces/ProjectController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mutest/controller/interfaces/ProjectController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mutest/dao/base/InterfaceCaseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mutest/dao/base/InterfaceCaseDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mutest/dao/base/InterfaceListDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mutest/dao/base/InterfaceListDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mutest/dao/base/InterfaceProjectDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mutest/dao/base/InterfaceProjectDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mutest/model/interfaces/ProjectInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mutest/model/interfaces/ProjectInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mutest/service/interfaces/CaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mutest/service/interfaces/CaseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mutest/service/interfaces/InterfaceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mutest/service/interfaces/InterfaceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mutest/service/interfaces/ProjectService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mutest/service/interfaces/ProjectService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mutest/service/interfaces/impl/CaseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mutest/service/interfaces/impl/CaseServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mutest/service/interfaces/impl/InterfaceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mutest/service/interfaces/impl/InterfaceServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mutest/service/interfaces/impl/ProjectServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mutest/service/interfaces/impl/ProjectServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mappers/InterfaceCaseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mappers/InterfaceCaseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mappers/InterfaceListMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mappers/InterfaceListMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mappers/InterfaceProjectMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mappers/InterfaceProjectMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/pages/interface/caseList.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/pages/interface/caseList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/pages/interface/interfaceList.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/pages/interface/interfaceList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/pages/interface/interfaceList.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/pages/interface/interfaceList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/pages/interface/projectList.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/pages/interface/projectList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/pages/interface/testSetList.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/pages/interface/testSetList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/mutest/Demo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/mutest/Demo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +63,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../demo/mudemo-master" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -155,6 +115,21 @@
     <configuration name="MutestApplication#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/MutestApplication.http" runType="Run single request">
       <method v="2" />
     </configuration>
+    <configuration name="MutestApplicationTestService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mutest-platForm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mutest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mutest" />
+      <option name="MAIN_CLASS_NAME" value="com.mutest.MutestApplicationTestService" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MutestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="mutest-platForm" />
       <extension name="coverage">
@@ -171,6 +146,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.MutestApplication" />
+        <item itemvalue="JUnit.MutestApplicationTestService" />
         <item itemvalue="Application.Demo" />
         <item itemvalue="HTTP Request.MutestApplication#1" />
       </list>
@@ -254,7 +230,11 @@
       <workItem from="1591150956078" duration="23733000" />
       <workItem from="1591196208459" duration="851000" />
       <workItem from="1591239916716" duration="24835000" />
-      <workItem from="1591362272632" duration="570000" />
+      <workItem from="1591362272632" duration="1566000" />
+      <workItem from="1591407440759" duration="70000" />
+      <workItem from="1591408679986" duration="94000" />
+      <workItem from="1591439224752" duration="4712000" />
+      <workItem from="1591451983608" duration="742000" />
     </task>
     <task id="LOCAL-00001" summary="添加sql文件">
       <created>1590892074086</created>
@@ -277,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591173688198</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="优化和修复bug">
+      <created>1591363073543</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1591363073543</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,14 +293,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="596" y="436" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587968895885" />
-    <state x="439" y="27" key="CommitChangelistDialog2" timestamp="1591363050356">
+    <state x="439" y="27" key="CommitChangelistDialog2" timestamp="1591363072914">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="439" y="27" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1591363050356" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1590891258170">
+    <state x="439" y="27" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1591363072914" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1591407508115">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590891258170" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1591407508115" />
     <state x="775" y="427" width="394" height="186" key="Github.CreateGistDialog" timestamp="1588043440862">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -326,38 +313,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="605" y="143" key="Github.UntrackedFilesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590891713111" />
-    <state width="1877" height="278" key="GridCell.Tab.0.bottom" timestamp="1591363050388">
+    <state width="1877" height="278" key="GridCell.Tab.0.bottom" timestamp="1591446951065">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591363050388" />
-    <state width="1877" height="278" key="GridCell.Tab.0.center" timestamp="1591363050387">
+    <state width="1877" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591446951065" />
+    <state width="1877" height="278" key="GridCell.Tab.0.center" timestamp="1591446951065">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591363050387" />
-    <state width="1877" height="278" key="GridCell.Tab.0.left" timestamp="1591363050387">
+    <state width="1877" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591446951065" />
+    <state width="1877" height="278" key="GridCell.Tab.0.left" timestamp="1591446951065">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591363050387" />
-    <state width="1877" height="278" key="GridCell.Tab.0.right" timestamp="1591363050388">
+    <state width="1877" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591446951065" />
+    <state width="1877" height="278" key="GridCell.Tab.0.right" timestamp="1591446951065">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591363050388" />
-    <state width="1877" height="278" key="GridCell.Tab.1.bottom" timestamp="1591363050388">
+    <state width="1877" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591446951065" />
+    <state width="1877" height="278" key="GridCell.Tab.1.bottom" timestamp="1591446951065">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591363050388" />
-    <state width="1877" height="278" key="GridCell.Tab.1.center" timestamp="1591363050388">
+    <state width="1877" height="278" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591446951065" />
+    <state width="1877" height="278" key="GridCell.Tab.1.center" timestamp="1591446951065">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591363050388" />
-    <state width="1877" height="278" key="GridCell.Tab.1.left" timestamp="1591363050388">
+    <state width="1877" height="278" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591446951065" />
+    <state width="1877" height="278" key="GridCell.Tab.1.left" timestamp="1591446951065">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591363050388" />
-    <state width="1877" height="278" key="GridCell.Tab.1.right" timestamp="1591363050388">
+    <state width="1877" height="278" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591446951065" />
+    <state width="1877" height="278" key="GridCell.Tab.1.right" timestamp="1591446951065">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591363050388" />
+    <state width="1877" height="278" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591446951065" />
     <state width="1877" height="205" key="GridCell.Tab.2.bottom" timestamp="1591195201042">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -378,10 +365,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="479" y="168" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590892548281" />
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1591173690709">
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1591363074857">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591173690709" />
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591363074857" />
     <state x="626" y="237" width="807" height="632" key="find.popup" timestamp="1591154389419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -5,9 +5,9 @@ spring:
     datasource:
       type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: com.mysql.jdbc.Driver
-      jdbc-url: jdbc:mysql://192.168.112.17:3306?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
-      username: appuser
-      password: 976xmX5kKuRNjnIy
+      jdbc-url: jdbc:mysql://localhost:3306?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+      username: root
+      password:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     joda-date-time-format: yyyy-MM-dd HH:mm:ss
